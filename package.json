@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/gbmahili/RBC-Network/issues"
   },
-  "homepage": "https://github.com/gbmahili/RBC-Network#readme"
+  "homepage": "https://github.com/gbmahili/RBC-Network#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mysql2": "^1.3.6",
+    "sequelize": "^4.3.1"
+  }
 }
