@@ -1,0 +1,24 @@
+{
+  "name": "rbc-network",
+  "version": "1.0.0",
+  "description": "This is professional connection app, users will be able to sign up and provide their interest, profession then connect with people of same interest, profession or of any other choice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gbmahili/RBC-Network.git"
+  },
+  "keywords": [
+    "Professional",
+    "Work",
+    "Connection"
+  ],
+  "author": "Baraka Mahili",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gbmahili/RBC-Network/issues"
+  },
+  "homepage": "https://github.com/gbmahili/RBC-Network#readme"
+}
