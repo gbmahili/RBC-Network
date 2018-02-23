@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       },
       work_image: {
-          type: DataTYpes.STRING,
+          type: DataTypes.STRING,
           validate: {
             isUrl: true
         }
