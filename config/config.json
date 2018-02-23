@@ -2,8 +2,8 @@
     "development": {
     "username": "root",
     "password": null,
-    "database": "network-db",
-    "host": "127.0.0.1",
+    "database": "network_db",
+    "host": "localhost",
     "dialect": "mysql"
     },
     "test": {
