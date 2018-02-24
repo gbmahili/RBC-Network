@@ -89,24 +89,54 @@
           <!-- <h1>Lorem ipsum dolor</h1> -->
           <!-- <h1>Connect with Classmates</h1> -->
           <!-- <h1>Connect with Fellow Coders</h1> -->
+          <br>
+          <br>
           <h2>Connect with Class Developers</h2>
+          <!-- nnnnnnnnn -->
+          <!-- BOTTOM SHEET MODAL TRIGGER -->
+          <a class="waves-effect waves-light btn modal-trigger " href="#modal3 ">Sign up</a>
 
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit fugit deserunt quos provident aliquam inventore.</p>
-          <br>
-          <br>
-          <a href="solutions.html" class="btn btn-large white purple-text">Learn More</a>
-          <a href="signup.html" class="btn btn-large purple white-text">Sign Up</a>
+
+          <!-- BOTTOM SHEET MODAL -->
+          <div id="modal3 " class=" black-text modal modal-fixed-footer">
+            <div>
+              <h4>Bottom Sheet Modal</h4>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In quam ut doloremque quisquam eveniet dolores, est
+                numquam sapiente aliquid necessitatibus, dicta odio voluptate hic cupiditate aperiam dolorum maxime veniam
+                quae.
+              </p>
+            </div>
+            <div class="modal-footer ">
+              <a href="#! " class="modal-action model-close waves-effect waves-green btn-flat ">Ok</a>
+            </div>
+          </div>
+
+          <!-- nnnnnn -->
         </div>
+
+
+
+        <br>
+        <br>
+
       </div>
     </div>
   </header>
 
   <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
+  <script type="text/javascript " src="js/materialize.min.js "></script>
   <script>
     $(document).ready(function () {
-      // Custom JS & jQuery here
+      // Custom JS & jQuery here  
+      $("#signUp").on("click", function () {
+        console.log($('.modal'));
+        $('.modal').modal("open");
+
+      })
+
+      // JAVASCRIPT START HERE //
+      $('.modal ').modal();
 
     });
   </script>
