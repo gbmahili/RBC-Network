@@ -1,8 +1,8 @@
 {
     "development": {
     "username": "root",
-    "password": null,
-    "database": "network-db",
+    "password": "daniella7.",
+    "database": "network_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
     },
