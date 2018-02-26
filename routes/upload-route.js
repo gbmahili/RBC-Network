@@ -14,7 +14,7 @@ module.exports = function(app) {
         if (err)
           return res.status(500).send(err.message);
      
-        res.send('File uploaded!');
+        alert('File uploaded!');
       });
     });
 
