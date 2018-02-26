@@ -11,7 +11,7 @@ var db        = {};
 if (process.env.JAWSDB_URL) {
   var sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
-  var sequelize = new Sequelize('network_db', 'root', 'Kambale1937');
+  var sequelize = new Sequelize('k9ur8asmhfceaecy', 'jvkg6iq8l4p18gkp', 't34iona0qu65p6df', config);
 }
 
 fs
