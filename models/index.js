@@ -14,7 +14,13 @@ var db        = {};
 //   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 // }
 
-var sequelize = new Sequelize(process.env.JAWSDB_URL);
+if (process.env.JAWSDB_URL) {
+  var sequelize = new Sequelize(process.env.JAWSDB_URL);
+} else {
+  var sequelize = new Sequelize('network_db', 'root', 'Kambale1937');
+}
+
+// var sequelize = new Sequelize(process.env.JAWSDB_URL);
 
 fs
   .readdirSync(__dirname)
