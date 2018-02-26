@@ -12,7 +12,7 @@ if (process.env.JAWSDB_URL) {
   //var sequelize = new Sequelize(process.env.JAWSDB_URL);
   var sequelize = new Sequelize('k9ur8asmhfceaecy', 'jvkg6iq8l4p18gkp', 't34iona0qu65p6df', {
       host: 'lgg2gx1ha7yp2w0k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-      dialect: 'mysql' | 'sqlite' | 'postgres' | 'mssql',
+      dialect: 'mysql',
       operatorsAliases: false,
 
       pool: {
