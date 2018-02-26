@@ -10,7 +10,20 @@ var db        = {};
 
 if (process.env.JAWSDB_URL) {
   //var sequelize = new Sequelize(process.env.JAWSDB_URL);
-  var sequelize = new Sequelize("lgg2gx1ha7yp2w0k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "k9ur8asmhfceaecy", "jvkg6iq8l4p18gkp", "t34iona0qu65p6df");
+  var sequelize = new Sequelize('k9ur8asmhfceaecy', 'jvkg6iq8l4p18gkp', 't34iona0qu65p6df', {
+      host: 'lgg2gx1ha7yp2w0k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+      dialect: 'mysql' | 'sqlite' | 'postgres' | 'mssql',
+      operatorsAliases: false,
+
+      pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    }
+  });
+    //("lgg2gx1ha7yp2w0k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com", "k9ur8asmhfceaecy", "jvkg6iq8l4p18gkp", "t34iona0qu65p6df");
+  
 } else {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
