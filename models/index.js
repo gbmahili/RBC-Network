@@ -1,5 +1,5 @@
 'use strict';
-
+// Dependencies 
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
@@ -8,8 +8,20 @@ var env       = process.env.NODE_ENV || 'development';
 var config    = require(__dirname + '/../config/config.json')[env];
 var db        = {};
 
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
+if (process.env.JAWSDB_URL) {
+  //var sequelize = new Sequelize(process.env.JAWSDB_URL);
+  var sequelize = new Sequelize('k9ur8asmhfceaecy', 'jvkg6iq8l4p18gkp', 't34iona0qu65p6df', {
+      host: 'lgg2gx1ha7yp2w0k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+      dialect: 'mysql',
+      operatorsAliases: false,
+      pool: {
+        max: 100,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    }
+  });  
+  
 } else {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
