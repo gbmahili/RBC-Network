@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
       //LIST OF COLUMNS //
 
       // First name cannot be null, length of characters needa a minimum of 1 and a max of 160
-      first_nameSSS: {
+      first_name: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
