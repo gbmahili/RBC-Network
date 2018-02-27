@@ -49,7 +49,7 @@ module.exports = function(app) {
       links: req.body['professionData[links]'],
       work_image: req.body['professionData[work_image]'],
       header: req.body['professionData[header]'],
-      values: req.body['professionData[values]'],
+      values: req.body['professionData[values]']
     });
   }).then(function (professionData) {
     tmpJson.professionData = professionData;
