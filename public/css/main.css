@@ -21,6 +21,18 @@
 .brand-logo {
   color: grey;
 }
+/* label color */
+.input-field label {
+  color: grey;
+  font-size: 18px;
+}
+.file-path {
+  color: gray;
+}
+.test {
+  color: grey;
+  font-size: 38px;
+}
 
 .main-header .showcase {
   padding-top: 100px;
