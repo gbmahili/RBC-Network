@@ -54,7 +54,7 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.INTEGER,
           validate: {
               len: [1,10],
-              isAlphanumeric: true,
+              isNumeric: true,
           }
       },
       //Photo, string type, validates to make sure a url link is added
@@ -67,11 +67,10 @@ module.exports = function(sequelize, DataTypes) {
 
       //House number, cannot be null, integer type, validates for a min of 1 character and only numbers allowed
       house_number: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [1],
-          isAlphanumeric: true,
         }
       },
       //Street name, cannot be null, string type and validates for length
@@ -109,7 +108,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         validate: {
             len: [1,10],
-            isAlphanumeric: true,
+            isNumeric: true,
           }
       },
     });
