@@ -82,13 +82,12 @@ module.exports = function(sequelize, DataTypes) {
           len: [1, 160]
         }
       },
-      //City, string type, cannot be null, validates for length and email format
+      //City, string type, cannot be null, validates for length
       city: { 
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1,100],
-          isEmail: true
+          len: [1,100]
         }
       },
       //State is a string type, and cannot be null
