@@ -40,5 +40,13 @@ module.exports = function (sequelize, DataTypes) {
     }
   });
 
+  Profession.associate = function (models) {
+    Profession.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Profession;
 };
