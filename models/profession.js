@@ -40,14 +40,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     });
 
-    // Adds a foreign key to the user id from the "user" table to be associated with corresponding profession
-    Profession.associate = function (models) {
-        Profession.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      };
-
     return Profession;
   };

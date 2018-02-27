@@ -115,10 +115,12 @@ module.exports = function(sequelize, DataTypes) {
       },
     });
 
-    // Association between user and professions, where one user can be linked to many professions.
-    User.associate = function(models) {
-      User.hasMany(models.Profession, {
-        onDelete: "cascade"
+    // Association between user and profession tables. 
+    User.associate = function (models) {
+      User.belongsTo(models.profession, {
+        foreignKey: {
+          allowNull: false
+        }
       });
     };
     return User;
