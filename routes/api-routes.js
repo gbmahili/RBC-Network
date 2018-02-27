@@ -31,28 +31,50 @@ module.exports = function(app) {
     // POST route for saving a User
   app.post("/api/members", function(req, res) {
     console.log(req.body);
+    let tmpJson = {};
 
+    // db.User.create({
+    //   first_name: req.body['userData[first_name]'],
+    //   last_name: req.body['userData[last_name]'],
+    //   email: req.body['userData[email]'],
+    //   password: req.body['userData[password]'],
+    //   gender: req.body['userData[gender]'],
+    //   pet: req.body['userData[pet]']
+
+    // }).then(function(dbUser) {
+    //   // We have access to the new todo as an argument inside of the callback function
+    //   res.json(dbUser);
+    // });
+
+    // api-routes.js for Veena
     db.User.create({
-      first_name: req.body['userData[first_name]'],
-      last_name: req.body['userData[last_name]'],
-      email: req.body['userData[email]'],
-      password: req.body['userData[password]'],
-      gender: req.body['userData[gender]'],
-      pet: req.body['userData[pet]']
-
-    }).then(function(dbUser) {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password: req.body.password,
+      gender: req.body.gender,
+      house_number: req.body.house_number,
+      street_name: req.body.street_name,
+      telephone: req.body.telephone,
+      city: req.body.city,
+      state: req.body.state,
+      country: req.body.country,
+      zipcode: req.body.zipcode,
+    }).then(function (dbUser) {
       // We have access to the new todo as an argument inside of the callback function
-      res.json(dbUser);
+      res.json(dbUser);      
+      db.Profession.create({
+        UserId : dbUser.id,
+        category: req.body.first_name
+      });      
     });
 
-    db.Profession.create({
-       
-      category: req.body['professionData[category]']
-
-    }).then(function(dbProfession) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(dbProfession);
-    });
+    // db.Profession.create({
+    //   category: req.body.first_name
+    // }).then(function (dbProfession) {
+    //   // We have access to the new todo as an argument inside of the callback function
+    //   res.json(dbProfession);
+    // });    
 
   });
 };

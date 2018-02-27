@@ -47,15 +47,13 @@ module.exports = function(sequelize, DataTypes) {
       },
       //Gender can be null and is a string type of input
       gender: {
-          type: DataTypes.STRING,
+          type: DataTypes.STRING
       },
       //Telephone is an integer type, validates for length and number ONLY
       telephone: {
-          type: DataTypes.STRING,
-          validate: {
-              len: [1]
-          }
-      },
+        type: DataTypes.STRING
+      },   
+    
       //Photo, string type, validates to make sure a url link is added
       photo: {
           type: DataTypes.STRING,
@@ -113,11 +111,9 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     // Association between user and profession tables. 
-    User.associate = function (models) {
-      User.belongsTo(models.Profession, {
-        foreignKey: {
-          allowNull: false
-        }
+    User.associate = function(models) {
+      User.hasMany(models.Profession, {
+      onDelete: "cascade"
       });
     };
     return User;
