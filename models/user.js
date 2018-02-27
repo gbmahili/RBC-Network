@@ -51,10 +51,9 @@ module.exports = function(sequelize, DataTypes) {
       },
       //Telephone is an integer type, validates for length and number ONLY
       telephone: {
-          type: DataTypes.INTEGER,
+          type: DataTypes.STRING,
           validate: {
-              len: [1],
-              isNumeric: true,
+              len: [1]
           }
       },
       //Photo, string type, validates to make sure a url link is added
