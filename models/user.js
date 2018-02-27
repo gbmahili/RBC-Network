@@ -53,7 +53,7 @@ module.exports = function(sequelize, DataTypes) {
       telephone: {
           type: DataTypes.INTEGER,
           validate: {
-              len: [1,10],
+              len: [1],
               isNumeric: true,
           }
       },
@@ -78,7 +78,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1, 160]
+          len: [1]
         }
       },
       //City, string type, cannot be null, validates for length
@@ -86,7 +86,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          len: [1,100]
+          len: [1]
         }
       },
       //State is a string type, and cannot be null
@@ -107,7 +107,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
-            len: [1,10],
+            len: [1],
             isNumeric: true,
           }
       },
