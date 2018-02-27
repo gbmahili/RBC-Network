@@ -1,7 +1,7 @@
 {
     "development": {
     "username": "root",
-    "password": "daniella7.",
+    "password": null,
     "database": "network_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -21,4 +21,6 @@
       "dialect": "mysql"
     }
   }
+
+  
   

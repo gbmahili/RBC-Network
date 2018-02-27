@@ -1,9 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
+
   // Creates table in network database called User
     var User = sequelize.define("User", {
-      //LIST OF COLUMNS //
 
-      // First name cannot be null, length of characters needa a minimum of 1 and a max of 160
+      //LIST OF COLUMNS //
+      // First name cannot be null, length of characters (min 1, max 160)
       first_name: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -19,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
           len: [1, 160]
         }
       },
-      //Email , cannot be null, validates for length of characters and makes sure it is an email format
+      //Email cannot be null, validates for length of characters and email format
       email: { 
         type: DataTypes.STRING,
         allowNull: false,
@@ -28,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
           isEmail: true
         }
       },
-      //Password, cannot be null, validates for length
+      //Password cannot be null, validates for length
       password: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -36,7 +37,7 @@ module.exports = function(sequelize, DataTypes) {
             len: [1,20]
         }
       },
-      //DOB is integer type, validates for length and makes sure is entered in data format
+      //DOB is an integer type, validates for length and date format
       date_of_birth: {
           type: DataTypes.INTEGER,
           validate: {
@@ -44,11 +45,11 @@ module.exports = function(sequelize, DataTypes) {
               isDate: true,
           }
       },
-      //Gender, can be null and is a string type of input
+      //Gender can be null and is a string type of input
       gender: {
           type: DataTypes.STRING,
       },
-      //Telephone, integer type, validates for length and makes sure only a number is accepted
+      //Telephone is an integer type, validates for length and number ONLY
       telephone: {
           type: DataTypes.INTEGER,
           validate: {
@@ -106,6 +107,7 @@ module.exports = function(sequelize, DataTypes) {
       //Zipcode is an integer type, validates for length and it must be only numbers
       zipcode: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         validate: {
             len: [1,10],
             isAlphanumeric: true,
