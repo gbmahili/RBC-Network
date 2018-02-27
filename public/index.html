@@ -104,17 +104,9 @@
               <h4>Welcome!</h4>
               <form class="grey lighten-1">
                 <h8 class=" red-text">* required fields</h8>
-                <!-- FIRST NAME -->
+                <!-- NAME -->
                 <div class="input-field">
-                  <input id="first_name" type="text">
-                  <label class="black-text" for="name">Name
-                    <span style="color:red">*</span>
-                  </label>
-                </div>
-
-                <!-- LAST NAME -->
-                <div class="input-field">
-                  <input id="last_name" type="text">
+                  <input id="name" type="text">
                   <label class="black-text" for="name">Name
                     <span style="color:red">*</span>
                   </label>
@@ -130,14 +122,14 @@
 
                 <!-- PASSWORD -->
                 <div class="input-field">
-                  <input id="password" type="password" class="materialize-textarea">
-                  <label class="black-text" for="password">Password
+                  <input id="message" type="password" class="materialize-textarea">
+                  <label class="black-text" for="message">Password
                     <span style="color:red">*</span>
                   </label>
                 </div>
                 <!-- GENDER -->
                 <div class="input-field">
-                  <select id="gender">
+                  <select>
                     <option value="" disabled selected>Gender</option>
                     <option value="">Female</option>
                     <option value="">Male</option>
@@ -157,17 +149,17 @@
                 <!-- DATE PICKER -->
 
                 <div class="input-field">
-                  <input type="text" class="datepicker" id="date_of_birth">
-                  <label for="date_of_birth">Enter your Birthday</label>
+                  <input type="text" class="datepicker" id="Enter your Birthday">
+                  <label for="Enter your Birthday">Enter your Birthday</label>
                 </div>
                 <!-- ADDRESS -->
                 <div class="input-field">
-                  <input id="house_number" type="text">
-                  <label class="black-text" for="house_number">House Number</label>
+                  <input id="address1" type="text">
+                  <label class="black-text" for="address1">Address 1</label>
                 </div>
                 <div class="input-field">
-                  <input id="street_name" type="text">
-                  <label class="black-text" for="street_name">Street Name</label>
+                  <input id="address2" type="text">
+                  <label class="black-text" for="address1">Address 2</label>
                 </div>
                 <div class="input-field">
                   <input id="city" type="text">
@@ -175,21 +167,17 @@
                 </div>
                 <div class="input-field">
                   <input id="state" type="text">
-                  <label class="black-text" for="state">State</label>
+                  <label class="black-text" for="state">state</label>
                 </div>
                 <div class="input-field">
                   <input id="zipCode" type="text">
                   <label class="black-text" for="zipCode">Zip Code</label>
                 </div>
-                <div class="input-field">
-                  <input id="country" type="text">
-                  <label class="black-text" for="country">Country</label>
-                </div>
                 <!-- BUTTON TO GO TO PORTFOLIO-CREATE PAGE -->
 
                 <br>
                 <div>
-                  <input type="submit" value="submit" class="btn waves-green" id="signUpBtn">
+                  <input type="submit" value="submit" class="btn waves-green">
                   <input type="submit" value="Next" class="btn waves-green">
                 </div>
 
@@ -200,8 +188,11 @@
               <a href="#! " class="modal-action model-close waves-effect waves-green btn-flat "></a>
             </div>
           </div>
+
           <!-- nnnnnn -->
         </div>
+
+
 
         <br>
         <br>
@@ -215,7 +206,7 @@
   <script type="text/javascript " src="js/materialize.min.js "></script>
   <script>
     $(document).ready(function () {
-      // Custom JS & jQuery here
+      // Custom JS & jQuery here  
       $("#signUp").on("click", function () {
         console.log($('.modal'));
         $('.modal').modal("open");
@@ -234,33 +225,7 @@
         max: true
       });
 
-      // Baraka's Test
-      $("#signUpBtn").click(e => {
-        e.preventDefault();
-
-        var userData = {
-          first_name: $("#first_name").val().trim(),
-          last_name: $("#last_name").val().trim(),
-          email: $("#email").val().trim(),
-          password: $("#password").val().trim(),
-          date_of_birth: $("#date_of_birth").val().trim(),
-          gender: $("#gender option:selected").text().trim(),
-          telephone: $("#telephone").val().trim(),
-          house_number: $("#house_number").val().trim(),
-          street_name: $("#street_name").val().trim(),
-          city: $("#city").val().trim(),
-          state: $("#state").val().trim(),
-          country: $("#country").val().trim(),
-          zipcode: $("#zipCode").val().trim()
-        }
-        // Log data
-        
-        // Send Data to the server
-        $.post("/api/members", userData).then(function (dbResults) {
-          console.log(dbResults);
-        });
-      });
-    });    
+    });
   </script>
 </body>
 
