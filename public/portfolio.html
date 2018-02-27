@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/main.css" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Materialize Theme</title>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="portfolio-header">
+    <nav id="portfolio-nav" class="transparent">
+      <div id="test" class="container">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">RBC 18</a>
+          <a href="#" data-activates="mobile-nav" class="button-collapse">
+            <i class="fa fa-bars"></i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a class="active-link" href="index.html">Home</a>
+            </li>
+            <!-- <li>
+              <a href="solutions.html">Solutions</a>
+            </li>
+            <li>
+              <a href="signup.html">Sign Up</a>
+            </li> -->
+            <li>
+
+              <a href="#" class="btn waves-green">Login</a>
+            </li>
+            <li>
+              <a href="https://facebook.com">
+                <i class="fab fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+          </ul>
+          <ul class="side-nav" id="mobile-nav">
+            <h4 class="purple-text text-darken-4 center">Quazzu</h4>
+            <li>
+              <div class="divider"></div>
+            </li>
+            <li>
+              <a href="index.html">
+                <i class="fa fa-home grey-text text-darken-4"></i> Home</a>
+            </li>
+            <li>
+              <a href="solutions.html">
+                <i class="fa fa-cog grey-text text-darken-4"></i> Solutions</a>
+            </li>
+            <li>
+              <a href="signup.html">
+                <i class="fa fa-users grey-text text-darken-4"></i> Sign Up</a>
+            </li>
+            <li>
+              <div class="divider"></div>
+            </li>
+            <li>
+              <a href="#" class="btn purple">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Showcase -->
+    <div class="showcase container">
+      <div class="row">
+        <div class="col s12 m10 offset-m1 center">
+          <div id="portfolioHeading">
+            <br>
+            <br>
+            <h4>Build Your RBC Portfolio</h4>
+          </div>
+          <br>
+          <br>
+          <!-- PORTFOLIO FORM -->
+
+          <form>
+            <!-- SELECT (Must be initialized) -->
+            <div class="input-field">
+              <select>
+                <option value="" disabled selected>select option</option>
+                <option value="">Developer</option>
+                <option value="">Business Analyst</option>
+                <option value="">Graphic Artist</option>
+                <option value="">Photographer</option>
+                <option value="">Writer</option>
+                <option value="">Scrum Master</option>
+                <option value="">Other</option>
+              </select>
+              <label>Choose Your Profession</label>
+            </div>
+
+            <!-- UPLOAD IMAGE -->
+            <form action="#">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Upload IMAGE</span>
+                  <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+            </form>
+
+            <!-- UPLOAD RESUME -->
+            <form action="#">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Upload RESUME</span>
+                  <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+            </form>
+
+            <!-- TEXT ENTRY AREA -->
+
+
+
+
+
+
+
+
+
+          </form>
+
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </header>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
+  <script type="text/javascript " src="js/materialize.min.js "></script>
+  <script>
+    $(document).ready(function () {
+      // Custom JS & jQuery here  
+      $("#signUp").on("click", function () {
+        console.log($('.modal'));
+        $('.modal').modal("open");
+
+      })
+
+      // JAVASCRIPT START HERE //
+      $('.modal ').modal();
+      // initialize select list
+      $('select').material_select();
+      // initialize birthday pick date
+      $('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 88,
+        min: new Date(1930, 1, 1),
+        max: true
+      });
+      //initialize select list
+      $('select').material_select();
+
+    });
+  </script>
+</body>
+
+</html>

@@ -5,6 +5,34 @@
   min-height: 600px;
   color: #fff;
 }
+.portfolio-header {
+  background: url(../img/pencil.jpeg);
+  background-size: cover;
+  background-position: center;
+  min-height: 600px;
+  color: #fff;
+}
+.portfolio-nav {
+  background-color: aquamarine;
+}
+#portfolioHeading {
+  color: grey;
+}
+.brand-logo {
+  color: grey;
+}
+/* label color */
+.input-field label {
+  color: grey;
+  font-size: 18px;
+}
+.file-path {
+  color: gray;
+}
+.test {
+  color: grey;
+  font-size: 38px;
+}
 
 .main-header .showcase {
   padding-top: 100px;

@@ -29,14 +29,15 @@
             <li>
               <a class="active-link" href="index.html">Home</a>
             </li>
-            <li>
+            <!-- <li>
               <a href="solutions.html">Solutions</a>
             </li>
             <li>
               <a href="signup.html">Sign Up</a>
-            </li>
+            </li> -->
             <li>
-              <a href="#" class="btn purple">Login</a>
+
+              <a href="#" class="btn waves-green">Login</a>
             </li>
             <li>
               <a href="https://facebook.com">
@@ -89,24 +90,140 @@
           <!-- <h1>Lorem ipsum dolor</h1> -->
           <!-- <h1>Connect with Classmates</h1> -->
           <!-- <h1>Connect with Fellow Coders</h1> -->
+          <br>
+          <br>
           <h2>Connect with Class Developers</h2>
+          <!-- nnnnnnnnn -->
+          <!-- BOTTOM SHEET MODAL TRIGGER -->
+          <a class="waves-effect waves-light   btn modal-trigger " href="#modal3 ">Sign up</a>
 
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit fugit deserunt quos provident aliquam inventore.</p>
-          <br>
-          <br>
-          <a href="solutions.html" class="btn btn-large white purple-text">Learn More</a>
-          <a href="signup.html" class="btn btn-large purple white-text">Sign Up</a>
+
+          <!-- BOTTOM SHEET MODAL -->
+          <div id="modal3 " class=" black-text modal  ">
+            <div>
+              <h4>Welcome!</h4>
+              <form class="grey lighten-1">
+                <h8 class=" red-text">* required fields</h8>
+                <!-- NAME -->
+                <div class="input-field">
+                  <input id="name" type="text">
+                  <label class="black-text" for="name">Name
+                    <span style="color:red">*</span>
+                  </label>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="input-field validate">
+                  <input id="email" type="email">
+                  <label data-error="Invalid" data-success="Valid" class="black-text" for="email">Email
+                    <span style="color:red">*</span>
+                  </label>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="input-field">
+                  <input id="message" type="password" class="materialize-textarea">
+                  <label class="black-text" for="message">Password
+                    <span style="color:red">*</span>
+                  </label>
+                </div>
+                <!-- GENDER -->
+                <div class="input-field">
+                  <select>
+                    <option value="" disabled selected>Gender</option>
+                    <option value="">Female</option>
+                    <option value="">Male</option>
+                  </select>
+                  <label></label>
+                </div>
+
+
+
+                <!-- PHONE NBR-->
+                <div class="input-field">
+                  <input id="telephone" type="text">
+                  <label class="black-text" for="telephone">Telephone ( ex. 732-999-9999)
+                  </label>
+                </div>
+                <!-- BIRTH DATE -->
+                <!-- DATE PICKER -->
+
+                <div class="input-field">
+                  <input type="text" class="datepicker" id="Enter your Birthday">
+                  <label for="Enter your Birthday">Enter your Birthday</label>
+                </div>
+                <!-- ADDRESS -->
+                <div class="input-field">
+                  <input id="address1" type="text">
+                  <label class="black-text" for="address1">Address 1</label>
+                </div>
+                <div class="input-field">
+                  <input id="address2" type="text">
+                  <label class="black-text" for="address1">Address 2</label>
+                </div>
+                <div class="input-field">
+                  <input id="city" type="text">
+                  <label class="black-text" for="city">City</label>
+                </div>
+                <div class="input-field">
+                  <input id="state" type="text">
+                  <label class="black-text" for="state">state</label>
+                </div>
+                <div class="input-field">
+                  <input id="zipCode" type="text">
+                  <label class="black-text" for="zipCode">Zip Code</label>
+                </div>
+                <!-- BUTTON TO GO TO PORTFOLIO-CREATE PAGE -->
+
+                <br>
+                <div>
+                  <input type="submit" value="submit" class="btn waves-green">
+                  <input type="submit" value="Next" class="btn waves-green">
+                </div>
+
+              </form>
+
+            </div>
+            <div class="modal-footer ">
+              <a href="#! " class="modal-action model-close waves-effect waves-green btn-flat "></a>
+            </div>
+          </div>
+
+          <!-- nnnnnn -->
         </div>
+
+
+
+        <br>
+        <br>
+
       </div>
     </div>
   </header>
 
   <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
+  <script type="text/javascript " src="js/materialize.min.js "></script>
   <script>
     $(document).ready(function () {
       // Custom JS & jQuery here
+      $("#signUp").on("click", function () {
+        console.log($('.modal'));
+        $('.modal').modal("open");
+
+      })
+
+      // JAVASCRIPT START HERE //
+      $('.modal ').modal();
+      // initialize select list
+      $('select').material_select();
+      // initialize birthday pick date
+      $('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 88,
+        min: new Date(1930, 1, 1),
+        max: true
+      });
 
     });
   </script>
