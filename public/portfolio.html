@@ -19,7 +19,7 @@
   <!-- Header -->
   <header class="portfolio-header">
     <nav id="portfolio-nav" class="transparent">
-      <div class="container">
+      <div id="test" class="container">
         <div class="nav-wrapper">
           <a href="#" class="brand-logo">RBC 18</a>
           <a href="#" data-activates="mobile-nav" class="button-collapse">
@@ -91,116 +91,85 @@
             <br>
             <h4>Build Your RBC Portfolio</h4>
           </div>
+          <br>
+          <br>
+          <!-- PORTFOLIO FORM -->
+
+          <form>
+            <!-- SELECT (Must be initialized) -->
+            <div class="input-field">
+              <select>
+                <option value="" disabled selected>select option</option>
+                <option value="">Developer</option>
+                <option value="">Business Analyst</option>
+                <option value="">Graphic Artist</option>
+                <option value="">Photographer</option>
+                <option value="">Writer</option>
+                <option value="">Scrum Master</option>
+                <option value="">Other</option>
+              </select>
+              <label>Choose Your Profession</label>
+            </div>
+
+            <!-- UPLOAD IMAGE -->
+            <form action="#">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Upload IMAGE</span>
+                  <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+            </form>
+
+            <!-- UPLOAD RESUME -->
+            <form action="#">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>Upload RESUME</span>
+                  <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+            </form>
+
+            <!-- TEXT ENTRY AREA -->
+
+
+
+
+
+
+
+
+
+          </form>
 
           <br>
           <br>
-
-
-          <!-- BOTTOM SHEET MODAL TRIGGER -->
-          <!-- <a class="waves-effect waves-light   btn modal-trigger " href="#modal3 ">Sign up</a> -->
-
-
-          <!-- BOTTOM SHEET MODAL -->
-          <div id="modal3 " class=" black-text modal  ">
-            <div>
-              <h4>Welcome!</h4>
-              <form class="grey lighten-1">
-                <h8 class=" red-text">* required fields</h8>
-                <!-- NAME -->
-                <div class="input-field">
-                  <input id="name" type="text">
-                  <label class="black-text" for="name">Name
-                    <span style="color:red">*</span>
-                  </label>
-                </div>
-
-                <!-- EMAIL -->
-                <div class="input-field validate">
-                  <input id="email" type="email">
-                  <label data-error="Invalid" data-success="Valid" class="black-text" for="email">Email
-                    <span style="color:red">*</span>
-                  </label>
-                </div>
-
-                <!-- PASSWORD -->
-                <div class="input-field">
-                  <input id="message" type="password" class="materialize-textarea">
-                  <label class="black-text" for="message">Password
-                    <span style="color:red">*</span>
-                  </label>
-                </div>
-                <!-- GENDER -->
-                <div class="input-field">
-                  <select>
-                    <option value="" disabled selected>Gender</option>
-                    <option value="">Female</option>
-                    <option value="">Male</option>
-                  </select>
-                  <label></label>
-                </div>
-
-
-
-                <!-- PHONE NBR-->
-                <div class="input-field">
-                  <input id="telephone" type="text">
-                  <label class="black-text" for="telephone">Telephone ( ex. 732-999-9999)
-                  </label>
-                </div>
-                <!-- BIRTH DATE -->
-                <!-- DATE PICKER -->
-
-                <div class="input-field">
-                  <input type="text" class="datepicker" id="Enter your Birthday">
-                  <label for="Enter your Birthday">Enter your Birthday</label>
-                </div>
-                <!-- ADDRESS -->
-                <div class="input-field">
-                  <input id="address1" type="text">
-                  <label class="black-text" for="address1">Address 1</label>
-                </div>
-                <div class="input-field">
-                  <input id="address2" type="text">
-                  <label class="black-text" for="address1">Address 2</label>
-                </div>
-                <div class="input-field">
-                  <input id="city" type="text">
-                  <label class="black-text" for="city">City</label>
-                </div>
-                <div class="input-field">
-                  <input id="state" type="text">
-                  <label class="black-text" for="state">state</label>
-                </div>
-                <div class="input-field">
-                  <input id="zipCode" type="text">
-                  <label class="black-text" for="zipCode">Zip Code</label>
-                </div>
-                <!-- BUTTON TO GO TO PORTFOLIO-CREATE PAGE -->
-
-                <br>
-                <div>
-                  <input type="submit" value="submit" class="btn waves-green">
-                  <input type="submit" value="Next" class="btn waves-green">
-                </div>
-
-              </form>
-
-            </div>
-            <div class="modal-footer ">
-              <a href="#! " class="modal-action model-close waves-effect waves-green btn-flat "></a>
-            </div>
-          </div>
-
-          <!-- nnnnnn -->
         </div>
-
-
-
-        <br>
-        <br>
-
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </header>
 
   <!--Import jQuery before materialize.js-->
@@ -226,6 +195,8 @@
         min: new Date(1930, 1, 1),
         max: true
       });
+      //initialize select list
+      $('select').material_select();
 
     });
   </script>
