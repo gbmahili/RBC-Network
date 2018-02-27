@@ -16,6 +16,7 @@ module.exports = function (app) {
       include:
         {
           model: db.Profession
+
         }
     })
       .then(function (dbmembers) {
@@ -24,39 +25,56 @@ module.exports = function (app) {
   });
 
 
+  // POST ROUTE
+  // =============================================================
+  // post route is still in progress, so when testing try to comment it out if it causes any errors
   // POST route for saving a User
   app.post("/api/members", function (req, res) {
-    // console.log(req.body);
+    console.log(req.body);
     let tmpJson = {};
-    db.User.create({
-      first_name: req.body['userData[first_name]'],
-      last_name: req.body['userData[last_name]'],
-      email: req.body['userData[email]'],
-      date_of_birth: req.body['userData[date_of_birth]'],
-      gender: req.body['userData[gender]'],
-      photo: req.body['userData[photo]'],
-      house_number: req.body['userData[house_number]'],
-      city: req.body['userData[city]'],
-      state: req.body['userData[state]'],
-      country: req.body['userData[country]'],
-      zipcode: req.body['userData[zipcode]']
 
+    // db.User.create({
+    //   first_name: req.body['userData[first_name]'],
+    //   last_name: req.body['userData[last_name]'],
+    //   email: req.body['userData[email]'],
+    //   password: req.body['userData[password]'],
+    //   gender: req.body['userData[gender]'],
+    //   pet: req.body['userData[pet]']
+
+    // }).then(function(dbUser) {
+    //   // We have access to the new todo as an argument inside of the callback function
+    //   res.json(dbUser);
+    // });
+
+    // api-routes.js for Veena
+    db.User.create({
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+      password: req.body.password,
+      gender: req.body.gender,
+      house_number: req.body.house_number,
+      street_name: req.body.street_name,
+      telephone: req.body.telephone,
+      city: req.body.city,
+      state: req.body.state,
+      country: req.body.country,
+      zipcode: req.body.zipcode,
     }).then(function (dbUser) {
-      tmpJson.dbUser = dbUser;
-      return db.Profession.create({
-        category: req.body['professionData[category]'],
-        about_me: req.body['professionData[about_me]'],
-        links: req.body['professionData[links]'],
-        work_image: req.body['professionData[work_image]'],
-        header: req.body['professionData[header]'],
-        values: req.body['professionData[values]']
-      });
-    }).then(function (professionData) {
-      tmpJson.professionData = professionData;
-      res.status(200).json({
-        status: "success",
-        reason: tmpJson
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbUser);
+      db.Profession.create({
+        UserId: dbUser.id,
+        category: req.body.first_name
       });
     });
+
+    // db.Profession.create({
+    //   category: req.body.first_name
+    // }).then(function (dbProfession) {
+    //   // We have access to the new todo as an argument inside of the callback function
+    //   res.json(dbProfession);
+    // });
+
   });
 };
