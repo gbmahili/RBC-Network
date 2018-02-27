@@ -1,8 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
+
   // Creates a table "profession" in our network database
     var Profession = sequelize.define("Profession", {
-      // LIST OF COLUMNS //
 
+      // LIST OF COLUMNS //
       //Category is a string type, cannot be null, and validates for length
       category: {
         type: DataTypes.STRING,
@@ -38,15 +39,6 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
       }
     });
-
-    // Adds a foreign key to the user id from the "user" table to be associated with corresponding profession
-    Profession.associate = function (models) {
-        Profession.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      };
 
     return Profession;
   };
