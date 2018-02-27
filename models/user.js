@@ -114,7 +114,7 @@ module.exports = function(sequelize, DataTypes) {
 
     // Association between user and profession tables. 
     User.associate = function (models) {
-      User.belongsTo(models.profession, {
+      User.belongsTo(models.Profession, {
         foreignKey: {
           allowNull: false
         }
