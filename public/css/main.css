@@ -12,8 +12,11 @@
   min-height: 600px;
   color: #fff;
 }
-.portfolio-nav, #profile-nav{
-  background-color:#26a69a;
+.select-dropdown {
+  font-size: 18px !important;
+}
+.portfolio-nav {
+  background-color: aquamarine;
 }
 #portfolioHeading {
   color: grey;

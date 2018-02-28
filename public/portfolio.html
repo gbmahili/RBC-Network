@@ -21,7 +21,7 @@
     <nav id="portfolio-nav" class="transparent">
       <div id="test" class="container">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">RBC 18</a>
+          <a href="#" class="brand-logo grey-text">RBC 18</a>
           <a href="#" data-activates="mobile-nav" class="button-collapse">
             <i class="fa fa-bars"></i>
           </a>
@@ -89,28 +89,87 @@
           <div id="portfolioHeading">
             <br>
             <br>
-            <h4>Build Your RBC Portfolio</h4>
+            <h4 class="grey-text">Welcome!</h4>
+            <!-- <h4>Build Your RBC Portfolio</h4> -->
           </div>
-          <br>
-          <br>
-          <!-- PORTFOLIO FORM -->
 
+          <br>
+          <!-- GENERAL INFO FORM -->
           <form>
-            <!-- SELECT (Must be initialized) -->
+            <div>
+              <form class="grey lighten-1">
+                <h8 class="left-align purple-text">* required fields</h8>
+
+                <!-- NAME -->
+                <div class="input-field">
+                  <input class="grey-text darken-3" id="name" name="name" type="text">
+                  <label class="grey-text" for="name">Name
+                    <span class=" purple-text">*</span>
+                  </label>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="input-field validate">
+                  <input class="grey-text" id="email" name="email" type="email">
+                  <label class="grey-text" for="email">Email
+                    <span class=" purple-text">*</span>
+                  </label>
+                </div>
+            </div>
+            <!-- PASSWORD -->
             <div class="input-field">
-              <select>
-                <option value="" disabled selected>select option</option>
-                <option value="">Developer</option>
-                <option value="">Business Analyst</option>
-                <option value="">Graphic Artist</option>
-                <option value="">Photographer</option>
-                <option value="">Writer</option>
-                <option value="">Scrum Master</option>
-                <option value="">Other</option>
-              </select>
-              <label>Choose Your Profession</label>
+              <input id="password" name="password" type="password" class="materialize-textarea grey-text">
+              <label class="grey-text" for="password">Create Password
+                <span class=" purple-text">*</span>
+              </label>
             </div>
 
+            <!-- GENDER -->
+            <div class="input-field grey-text">
+              <select id="gender" name="gender">
+                <option value="" disabled selected>Gender</option>
+                <option value="">Female</option>
+                <option value="">Male</option>
+              </select>
+              <label></label>
+            </div>
+
+            <!-- PHONE NBR-->
+            <div class="input-field">
+              <input id="telephone" type="text">
+              <label class="grey-text" for="telephone">Telephone ( ex. 732-999-9999)
+              </label>
+            </div>
+
+            <!-- BIRTH DATE -->
+            <!-- DATE PICKER -->
+
+            <div class="grey-text input-field">
+              <input type="text" class="datepicker" id="Enter your Birthday">
+              <label for="Enter your Birthday">Enter your Birthday</label>
+            </div>
+
+            <!-- ADDRESS -->
+            <div class="input-field">
+              <input id="address1" type="text">
+              <label class="grey-text" for="address1">Address 1</label>
+            </div>
+            <div class="input-field">
+              <input id="address2" type="text">
+              <label class="grey-text" for="address1">Address 2</label>
+            </div>
+            <div class="input-field">
+              <input id="city" type="text">
+              <label class="grey-text" for="city">City</label>
+            </div>
+            <div class="input-field">
+              <input id="state" type="text">
+              <label class="grey-text" for="state">state</label>
+            </div>
+            <div class="input-field">
+              <input id="zipCode" type="text">
+              <label class="grey-text" for="zipCode">Zip Code</label>
+            </div>
             <!-- UPLOAD IMAGE -->
             <form action="#">
               <div class="file-field input-field">
@@ -138,19 +197,58 @@
             </form>
 
             <!-- TEXT ENTRY AREA -->
+            </form>
 
 
+            <!-- PORTFOLIO FORM -->
+            <form>
+              <!-- CHOOSE PROFESSION -->
+              <!-- SELECT (Must be initialized in javascript) -->
+              <div class="input-field grey-text">
+                <select>
+                  <option value="" disabled selected>select option</option>
+                  <option value="">Developer</option>
+                  <option value="">Business Analyst</option>
+                  <option value="">Graphic Artist</option>
+                  <option value="">Photographer</option>
+                  <option value="">Writer</option>
+                  <option value="">Scrum Master</option>
+                  <option value="">Other</option>
+                </select>
+                <label>Choose Your Profession</label>
+              </div>
 
+              <!-- UPLOAD IMAGE -->
+              <form action="#">
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>Upload IMAGE</span>
+                    <input type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+              </form>
 
+              <!-- UPLOAD RESUME -->
+              <form action="#">
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>Upload RESUME</span>
+                    <input type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                  </div>
+                </div>
+              </form>
 
+              <!-- TEXT ENTRY AREA -->
+            </form>
 
-
-
-
-          </form>
-
-          <br>
-          <br>
+            <br>
+            <br>
         </div>
       </div>
     </div>
