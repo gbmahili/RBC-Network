@@ -42,3 +42,20 @@
   color: #d847f1;
   font-weight: bold;
 }
+
+/* Modal for Login */
+.modal { 
+  width: 40% !important; 
+  height: 50% !important
+}
+h4 {
+  padding-top: 20px;
+}
+
+.signin{
+  margin: 20px;
+}
+
+#submit {
+  margin-right: 10px;
+}
