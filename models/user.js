@@ -39,9 +39,9 @@ module.exports = function (sequelize, DataTypes) {
     },
     //DOB is an integer type, validates for length and date format
     date_of_birth: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       validate: {
-        len: [1, 8],
+        len: [1],
         isDate: true,
       }
     },
