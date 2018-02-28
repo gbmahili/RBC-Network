@@ -12,7 +12,9 @@
   min-height: 600px;
   color: #fff;
 }
-
+.portfolio-nav, #profile-nav{
+  background-color:#26a69a;
+}
 #portfolioHeading {
   color: grey;
 }
@@ -56,4 +58,9 @@ h4 {
 
 #submit {
   margin-right: 10px;
+}
+/* End of Modal for login */
+
+#profession-name{
+  width:75%
 }
