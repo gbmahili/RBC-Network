@@ -30,7 +30,8 @@ module.exports = function (app) {
                 }else{
                     // User does not exisit
                     res.json({
-                        message: "User Does not exist"
+                        // Send an error code to the user, which means the user does not exist in our database.
+                        rcb_code: "404DNJVB"
                     })
                     console.log("User Does not exist");
                 }                

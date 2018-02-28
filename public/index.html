@@ -124,6 +124,7 @@
       </div>
     </div>
   </header>
+  <div id="login-message"></div>
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
   <script type="text/javascript " src="js/materialize.min.js "></script>
@@ -155,14 +156,20 @@
           userEmail: $("#email").val().trim(),
           userPassword: $("#password").val().trim()
         };
-        console.log(loginInformation);
         // Send Data to the server and authenticate the user
         $.ajax({
           method: "POST",
           url: "/login",
           data: loginInformation,
           success: function (dbRespoonse) {
-            console.log(dbRespoonse);
+            // If user does not exist in the db or the password is wrong
+            if (dbRespoonse.rcb_code == "404DNJVB") {
+              Materialize.toast('Sorry, We cannot find you in our system, please create an account', 5000);              
+            }
+            // If user exists in the DB and the password is correct:
+            if (dbRespoonse.email == loginInformation.userEmail) {
+              Materialize.toast('AWESOME NEWS, WE FOUND YOU IN THE DATABASE....You will be redirected once we have the page ready', 5000);
+            }
           }
         });
 
