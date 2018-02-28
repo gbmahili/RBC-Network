@@ -12,6 +12,9 @@
   min-height: 600px;
   color: #fff;
 }
+.select-dropdown {
+  font-size: 18px !important;
+}
 .portfolio-nav {
   background-color: aquamarine;
 }
