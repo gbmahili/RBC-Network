@@ -145,7 +145,29 @@
         min: new Date(1930, 1, 1),
         max: true
       });
+
+
+      // Login: - Baraka
+      $("#submit").click(function () {
+
+        // Grab login information and store them in a object:
+        var loginInformation = {
+          userEmail: $("#email").val().trim(),
+          userPassword: $("#password").val().trim()
+        };
+        console.log(loginInformation);
+        // Send Data to the server and authenticate the user
+        $.ajax({
+          method: "POST",
+          url: "/login",
+          data: loginInformation,
+          success: function (dbRespoonse) {
+            console.log(dbRespoonse);
+          }
+        });
+
+      });
     });
   </script>
 </body>
-</html>```
+</html>
