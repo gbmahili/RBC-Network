@@ -21,7 +21,7 @@
     <nav id="portfolio-nav" class="transparent">
       <div id="test" class="container">
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">RBC 18</a>
+          <a href="#" class="brand-logo grey-text">RBC 18</a>
           <a href="#" data-activates="mobile-nav" class="button-collapse">
             <i class="fa fa-bars"></i>
           </a>
@@ -86,90 +86,196 @@
     <div class="showcase container">
       <div class="row">
         <div class="col s12 m10 offset-m1 center">
-          <div id="portfolioHeading">
-            <br>
-            <br>
-            <h4>Build Your RBC Portfolio</h4>
+          <div id="portfolioHeading">            
+            <h4 class="grey-text">Welcome!</h4>
+            
+            <!-- <h4>Build Your RBC Portfolio</h4> -->
           </div>
-          <br>
-          <br>
-          <!-- PORTFOLIO FORM -->
 
-          <form>
-            <!-- SELECT (Must be initialized) -->
-            <div class="input-field">
-              <select>
-                <option value="" disabled selected>select option</option>
-                <option value="">Developer</option>
-                <option value="">Business Analyst</option>
-                <option value="">Graphic Artist</option>
-                <option value="">Photographer</option>
-                <option value="">Writer</option>
-                <option value="">Scrum Master</option>
-                <option value="">Other</option>
-              </select>
-              <label>Choose Your Profession</label>
+          <br>
+          <!-- GENERAL INFO FORM -->
+          <form class="grey lighten-3 form-area">
+
+            <div class="row">
+            
+                <h8 class="left-align purple-text">* required fields</h8>
+              </div>
+            <div class="row">
+            
+                <!-- NAME -->
+                <div class="input-field col m6 s12">
+                  <input class="grey-text darken-3" id="first_name" name="first_name" type="text">
+                  <label class="grey-text" for="first_name">First Name
+                    <span class=" purple-text">*</span>
+                  </label>
+                </div>
+
+                <div class="input-field col m6 s12">
+                  <input class="grey-text darken-3" id="last_name" name="last_name" type="text">
+                  <label class="grey-text" for="last_name">Last Name
+                    <span class=" purple-text">*</span>
+                  </label>
+                </div>
             </div>
 
-            <!-- UPLOAD IMAGE -->
-            <form action="#">
-              <div class="file-field input-field">
-                <div class="btn">
-                  <span>Upload IMAGE</span>
-                  <input type="file">
+            <div class="row">
+                <!-- EMAIL -->
+                <div class="input-field validate col m6 s12">
+                  <input class="grey-text darken-3" id="email" name="email" type="email">
+                  <label class="grey-text" for="email">Email
+                    <span class=" purple-text">*</span>
+                  </label>
                 </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
-                </div>
+            
+            <!-- PASSWORD -->
+            <div class="input-field col m6 s12">
+              <input id="password" name="password" type="password" class="materialize-textarea grey-text">
+              <label class="grey-text darken-3" for="password">Create Password
+                <span class=" purple-text">*</span>
+              </label>
+            </div>
+
+          </div>
+          <div class="row">
+            <!-- GENDER -->
+            <div class="input-field grey-text col m6 s12">
+              <select id="gender" name="gender">
+                <option value="" disabled selected>Gender</option>
+                <option value="">Female</option>
+                <option value="">Male</option>
+              </select>
+              <label></label>
+            </div>
+
+            <!-- BIRTH DATE -->
+            <!-- DATE PICKER -->
+            <div class="grey-text input-field col m6 s12">
+              <input type="text" class="datepicker darken-3" id="date_of_birth" name="date_of_birth">
+              <label for="date_of_birth">Enter your Birthday</label>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="input-field col m6 s12">
+            <input id="country"  class="grey-text darken-3" type="text">
+            <label class="grey-text darken-3" for="country">Country</label>
+          </div>
+
+          <div class="input-field col m6 s12">
+            <input id="telephone" class="grey-text darken-3" type="text">
+            <label class="grey-text darken-3" for="telephone">Telephone ( ex. 732-999-9999)
+            </label>
+          </div>
+        
+        </div>
+            <!-- PHONE NBR-->
+            
+
+            <!-- ADDRESS -->
+            <div class="row">
+
+              <div class="input-field col m6 s12">
+                <input id="house_number" class="grey-text darken-3" type="text" name="house_number">
+                <label class="grey-text darken-3" for="house_number">House Number</label>
               </div>
-            </form>
+              <div class="input-field col m6 s12">
+                <input id="street_name" class="grey-text darken-3" type="text" name="street_name">
+                <label class="grey-text darken-3" for="street_name">Street Name</label>
+              </div>              
+
+            </div>
+
+            <div class="row">
+              <div class="input-field col m4 s12">
+                <input id="city" class="grey-text darken-3" type="text">
+                <label class="grey-text darken-3" for="city">City</label>
+              </div>
+              <div class="input-field col m4 s12">
+                <input id="state" class="grey-text darken-3" type="text">
+                <label class="grey-text darken-3" for="state">state</label>
+              </div>
+              <div class="input-field col m4 s12">
+                <input id="zipcode" class="grey-text darken-3" type="text">
+                <label class="grey-text darken-3" for="zipcode">Zip Code</label>
+              </div>
+            </div>
+
+              
+
+              <!-- CHOOSE PROFESSION -->
+              <!-- SELECT (Must be initialized in javascript) -->
+              <div class="input-field grey-text darken-3">
+                <select id="profession">
+                  <option value="" disabled selected>select option</option>
+                  <option value="">Developer</option>
+                  <option value="">Business Analyst</option>
+                  <option value="">Graphic Artist</option>
+                  <option value="">Photographer</option>
+                  <option value="">Writer</option>
+                  <option value="">Scrum Master</option>
+                  <option value="">Other</option>
+                </select>
+                <label>Choose Your Profession</label>
+              </div>
+              
+              <!-- UPLOAD IMAGE -->
+              <div class="row">
+
+              
+                <div class="file-field input-field col m6 s12">
+                  <div class="btn">
+                    <span>Profile Photo</span>
+                    <input class="grey-text darken-3" type="file" class="grey-text darken-3">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate aqua-text darken-3" type="text">
+                  </div>
+                </div>
+
+                <div class="file-field input-field col m6 s12">
+                  <div class="btn">
+                    <span>Work Links</span>
+                    <input type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate grey-text darken-3" type="text" name="resumeFile">
+                  </div>
+                </div>
 
             <!-- UPLOAD RESUME -->
-            <form action="#">
-              <div class="file-field input-field">
+            <div class="file-field input-field col m6 s12">
+              <div class="btn">
+                <span>Select Resume</span>
+                <input class="grey-text darken-3" type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate grey-text darken-3" type="text">
+              </div>
+            </div>
+            
+              <div class="file-field input-field col m6 s12">
                 <div class="btn">
-                  <span>Upload RESUME</span>
-                  <input type="file">
+                  <span>Work Images</span>
+                  <input class="grey-text darken-3" type="file" name="profileImageFile">
                 </div>
                 <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text">
+                  <input class="file-path validate grey-text darken-3" type="text">
                 </div>
               </div>
+              
+              
+          </div>
+
+            <button class="btn blue" id="signUpBtn">Sign Up</button>
+
             </form>
-
+            
             <!-- TEXT ENTRY AREA -->
-
-
-
-
-
-
-
-
-
-          </form>
-
-          <br>
-          <br>
+            <br>
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   </header>
 
   <!--Import jQuery before materialize.js-->
@@ -197,6 +303,33 @@
       });
       //initialize select list
       $('select').material_select();
+
+      // Baraka's Test
+      $("#signUpBtn").click(e => {
+        e.preventDefault();
+
+        var userData = {
+          first_name: $("#first_name").val().trim(),
+          last_name: $("#last_name").val().trim(),
+          email: $("#email").val().trim(),
+          password: $("#password").val().trim(),
+          date_of_birth: $("#date_of_birth").val().trim(),
+          gender: $("#gender option:selected").text().trim(),
+          telephone: $("#telephone").val().trim(),
+          house_number: $("#house_number").val().trim(),
+          street_name: $("#street_name").val().trim(),
+          city: $("#city").val().trim(),
+          state: $("#state").val().trim(),
+          country: $("#country").val().trim(),
+          zipcode: $("#zipcode").val().trim()
+        }
+        // Log data
+  console.log(userData)
+        // Send Data to the server
+        $.post("/api/members", userData).then(function (dbResults) {
+          console.log(dbResults);
+        });
+      });
 
     });
   </script>

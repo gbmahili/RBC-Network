@@ -12,6 +12,9 @@
   min-height: 600px;
   color: #fff;
 }
+.select-dropdown {
+  font-size: 18px !important;
+}
 .portfolio-nav {
   background-color: aquamarine;
 }
@@ -41,4 +44,29 @@
 .active-link {
   color: #d847f1;
   font-weight: bold;
+}
+
+/* Modal for Login */
+.modal { 
+  width: 40% !important; 
+  height: 50% !important
+}
+h4 {
+  padding-top: 20px;
+}
+
+.signin{
+  margin: 20px;
+}
+
+#submit {
+  margin-right: 10px;
+}
+/* End of Modal for login */
+
+#profession-name{
+  width:75%
+}
+.form-area{
+  padding: 20px !important;
 }
