@@ -39,9 +39,9 @@ module.exports = function (sequelize, DataTypes) {
     },
     //DOB is an integer type, validates for length and date format
     date_of_birth: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       validate: {
-        len: [1, 8],
+        len: [1],
         isDate: true,
       }
     },
@@ -108,13 +108,10 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   // Association between user and profession tables.
-  User.associate = function (models) {
-    //1 to hasmany with profession
-    User.hasMany(models.Profession, {
-    
-      onDelete: 'CASCADE', 
-      foreignKey: { name:'UserId', allowNull: false }
-    });
-  };
+    User.associate = function (models) {
+      User.belongsToMany(models.Profession, {           
+        through: 'user_profession'
+      });
+    };
   return User;
 };
