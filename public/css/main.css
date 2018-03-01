@@ -12,6 +12,9 @@
   min-height: 600px;
   color: #fff;
 }
+.select-dropdown {
+  font-size: 18px !important;
+}
 .portfolio-nav {
   background-color: aquamarine;
 }
@@ -20,6 +23,18 @@
 }
 .brand-logo {
   color: grey;
+}
+/* label color */
+.input-field label {
+  color: grey;
+  font-size: 18px;
+}
+.file-path {
+  color: gray;
+}
+.test {
+  color: grey;
+  font-size: 38px;
 }
 
 .main-header .showcase {
@@ -30,3 +45,51 @@
   color: #d847f1;
   font-weight: bold;
 }
+
+/* Modal for Login */
+.modal { 
+  width: 40% !important; 
+  height: 50% !important
+}
+h4 {
+  padding-top: 20px;
+}
+
+.signin{
+  margin: 20px;
+}
+
+#submit {
+  margin-right: 10px;
+}
+/* End of Modal for login */
+
+/* Profile Page */
+#profession-name {
+  width:75%
+}
+.form-area {
+  padding: 20px !important;
+}
+
+#profile-nav {
+  background-color: #26a69a;
+}
+
+.logout-link {
+  color: black;
+  font-weight: bold
+}
+.profile-sec{
+  margin-left: 35px;
+}
+
+.images {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+  padding-left: 15px;
+}
+
+
+

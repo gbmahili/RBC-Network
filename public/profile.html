@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/main.css" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Profile</title>
+</head>
+
+<body>
+<!-- Header -->
+<header class="profile">
+  <nav id="profile-nav">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">RCB 18</a>
+        <a href="#" data-activates="mobile-nav" class="button-collapse">
+          <i class="fa fa-bars"></i>
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            Welcome, "User Name"
+          </li>
+          <li>
+            <a href="https://facebook.com">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="https://instagram.com">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+          <li>
+              <a class="logout-link" href="index.html">Logout</a>
+            </li>
+        </ul>
+        <ul class="side-nav" id="mobile-nav">
+          <h4 class="purple-text text-darken-4 center">Quazzu</h4>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a href="index.html">
+              <i class="fa fa-home grey-text text-darken-4"></i> Home</a>
+          </li>
+          <li>
+            <a href="solutions.html">
+              <i class="fa fa-cog grey-text text-darken-4"></i> Solutions</a>
+          </li>
+          <li>
+            <a href="signup.html">
+              <i class="fa fa-users grey-text text-darken-4"></i> Sign Up</a>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a href="#" class="btn purple">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<br>
+  <!-- FORM FOR USER TO SEARCH  -->
+  <div class="container">
+    <div class="row">
+      <form class="col s12 m6 offset-m3">
+        <input placeholder="Enter profession" id="profession-name" type="text" class="validate"> <span>
+        <a class="btn waves-effect waves-light waves-green" href="#"> <i class="material-icons">search</i></a></span>
+      </form>
+    </div>
+
+    <!-- Profile Image -->
+    <div class="row">
+      <div class="col s6 m2">
+        <div class="card">
+          <div class="card-image">
+            <img src="img/profile-avatar.jpg">
+          </div>
+          <!-- <div class="card-content">
+            <p>About Me Section</p>
+          </div> -->
+          <div class="card-action">
+            <a href="#">Change Profile Picture</a>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col s12 m6">
+        <h5> FIRST NAME, LAST NAME</h5> 
+        <p>Profession</p>
+      </div>
+      <div class="col s12 m2 profile-user">
+        <p><a href="#">Edit Profile</a></p>
+      </div>
+
+      <!-- About Me Section -->
+      <div class="col s12 m8">
+        <div class="card grey darken-4">
+          <div class="card-content white-text">
+            <span class="card-title">About Me</span>
+            <p>Displays information user provided</p>
+          </div>
+        </div>
+      </div>
+      <!-- Images -->
+      <div class="col s12 m8 ">
+        <p class="images"> Images </p>
+      </div>
+        <div class="col s3">
+            <img class="materialboxed" src="img/placeholder.png">
+          <!-- Promo Content 1 goes here -->
+        </div>
+        <div class="col s3">
+            <img class="materialboxed" src="img/placeholder.png">
+          <!-- Promo Content 2 goes here -->
+        </div>
+        <div class="col s3">
+            <img class="materialboxed" src="img/placeholder.png">
+          <!-- Promo Content 3 goes here -->
+        </div>
+  </div>
+
+  </div>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
+  <script type="text/javascript " src="js/materialize.min.js "></script>
+  <script>
+    $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+  </script>
+
+
+</body>
+</html>

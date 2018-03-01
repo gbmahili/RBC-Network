@@ -39,9 +39,9 @@ module.exports = function (sequelize, DataTypes) {
     },
     //DOB is an integer type, validates for length and date format
     date_of_birth: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       validate: {
-        len: [1, 8],
+        len: [1],
         isDate: true,
       }
     },
@@ -50,12 +50,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
     },
     //Telephone is an integer type, validates for length and number ONLY
-    telephone: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [1]
-      }
-    },
+    telephone: DataTypes.STRING,
     //Photo, string type, validates to make sure a url link is added
     photo: {
       type: DataTypes.STRING,
@@ -93,7 +88,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    //Country is a string type, cannot be null and validates for length 
+    //Country is a string type, cannot be null and validates for length
     country: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -112,18 +107,11 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  // Association between user and profession tables. 
-  User.associate = function (models) {       
-    // Associating User with Professions (1 to hasmany) with profession
-    User.hasMany(models.Profession, {
-      // When a User  is deleted, also delete any associated Professions
-      onDelete: 'CASCADE', 
-      foreignKey: { 
-        //naming the foreignkey field as 'owner
-        name:'owner', 
-        allowNull: false }
-    });
-  };
-  
+  // Association between user and profession tables.
+    User.associate = function (models) {
+      User.belongsToMany(models.Profession, {           
+        through: 'user_profession'
+      });
+    };
   return User;
 };
