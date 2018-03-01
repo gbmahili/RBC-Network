@@ -50,12 +50,7 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
     },
     //Telephone is an integer type, validates for length and number ONLY
-    telephone: {
-      type: DataTypes.STRING,
-      validate: {
-        len: [1]
-      }
-    },
+    telephone: DataTypes.STRING,
     //Photo, string type, validates to make sure a url link is added
     photo: {
       type: DataTypes.STRING,
@@ -118,7 +113,7 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Profession, {
     
       onDelete: 'CASCADE', 
-      foreignKey: {name:'owner', allowNull: false }
+      foreignKey: { name:'UserId', allowNull: false }
     });
   };
   return User;
