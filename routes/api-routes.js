@@ -53,6 +53,7 @@ module.exports = function (app) {
         work_image: req.body['professionData[work_image]'],
         header: req.body['professionData[header]'],
         values: req.body['professionData[values]'],
+        // manually mapping the owner field with id field in User Table
         owner: dbUser.id
       });
     }).then(function (professionData) {
