@@ -20,7 +20,23 @@ module.exports = function (sequelize, DataTypes) {
         isUrl: true
       }
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+    }
   });
+
+  Profession.associate = function (models) {
+    Profession.belongsToMany(models.User, {
+      through:  'user_profession'
+    });
+  };
 
   return Profession;
 };

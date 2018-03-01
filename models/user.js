@@ -108,13 +108,10 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   // Association between user and profession tables.
-  User.associate = function (models) {
-    //1 to hasmany with profession
-    User.hasMany(models.Profession, {
-    
-      onDelete: 'CASCADE', 
-      foreignKey: { name:'UserId', allowNull: false }
-    });
-  };
+    User.associate = function (models) {
+      User.belongsToMany(models.Profession, {           
+        through: 'user_profession'
+      });
+    };
   return User;
 };
