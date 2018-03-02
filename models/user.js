@@ -79,9 +79,9 @@ module.exports = function (sequelize, DataTypes) {
     state: {
       type: DataTypes.STRING,
       allowNull: false,
-      // validate: {
-      //   isAlpha: true,
-      // }
+      validate: {
+        isAlpha: true,
+      }
     },
     //Country is a string type, cannot be null and validates for length
     country: {
