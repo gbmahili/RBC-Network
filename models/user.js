@@ -41,7 +41,6 @@ module.exports = function (sequelize, DataTypes) {
     date_of_birth: {
       type: DataTypes.STRING,
       validate: {
-        len: [1],
         isDate: true,
       }
     },
@@ -62,46 +61,36 @@ module.exports = function (sequelize, DataTypes) {
     //House number, cannot be null, integer type, validates for a min of 1 character and only numbers allowed
     house_number: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1],
-      }
     },
     //Street name, cannot be null, string type and validates for length
     street_name: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
     },
     //City, string type, cannot be null, validates for length
     city: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
+        len: [1],
+        isAlpha: true,
       }
     },
     //State is a string type, and cannot be null
     state: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        isAlpha: true,
+      }
     },
     //Country is a string type, cannot be null and validates for length
     country: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
     },
     //Zipcode is an integer type, validates for length and it must be only numbers
     zipcode: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       validate: {
-        len: [1],
         isNumeric: true,
       }
     },
