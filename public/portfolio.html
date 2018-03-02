@@ -20,7 +20,7 @@
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Materialize Theme</title>
+  <title>RCB Network - Sign Up</title>
 </head>
 
 <body>
@@ -38,7 +38,7 @@
               <a class="active-link" href="index.html">Home</a>
             </li>
             <li>
-              <a href="index.html" class="btn waves-green">Login</a>
+              <a href="/index.html" class="btn waves-green">Login</a>
             </li>
             <li>
               <a href="https://facebook.com">
@@ -77,7 +77,7 @@
               <div class="divider"></div>
             </li>
             <li>
-              <a href="#" class="btn purple">Login</a>
+              <a href="/index.html" class="btn purple">Login</a>
             </li>
           </ul>
         </div>
@@ -233,9 +233,7 @@
       $("#signUp").on("click", function () {
         console.log($('.modal'));
         $('.modal').modal("open");
-
-      })
-
+      });
       // JAVASCRIPT START HERE //
       $('.modal ').modal();
       // initialize select list
@@ -263,7 +261,6 @@
       var professionName = $("input:checkbox:checked").map(function(){
          return $(this).attr('id');
       }).get();
-
       professionName.forEach(element =>{
         tempArray.push($(`input[name='${element}']`).val());
       })
