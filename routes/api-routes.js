@@ -19,10 +19,33 @@ module.exports = function (app) {
         });
     });
   }
-  
 
+  //GET ROUTE for searched profession through url
+  // =============================================================
+  app.get('/professions/:category', function (req, res){
+    console.log('hello' +req.params.category)
+    db.Profession.findAll(
+    {
+      where: { category: req.params.category },   
+      include:[{ all: true}]   
+    }).then(function(dbProfession){
+      res.json(dbProfession);
+    })
+  })
+
+  //GET ROUTE for all profession
+  // =============================================================
+  app.get('/professions', function (req, res){
+    db.Profession.findAll({
+      where:req.query,
+      include:[{ all: true}]   
+    }).then(function(dbProfession){
+      res.json(dbProfession);
+    })
+  })
 
   // POST route for saving a User
+  // =============================================================
   app.post("/api/members", function (req, res) {
     // console.log(req.body);
     let tmpJson = {};
@@ -61,7 +84,5 @@ module.exports = function (app) {
       });  
       
    // =============================================================  
- 
 
-
-    };
+};

@@ -1,6 +1,10 @@
 $(document).ready(function(event){
 	
 //============================================
+$.get('/professions/:category', function(data){
+	professionTableIteration(JSON.stringify(data));
+})
+
 
 	//GET REQUEST For all the data from profession table
 	//============================================
@@ -10,7 +14,8 @@ $(document).ready(function(event){
 	// store the response in the data parameter
 	$.get('/professions', function(data){
 	//============================================
-			
+	// with all the information we get back 
+	// we are calling the function that handles how it's displayed
 	professionTableIteration(data);
 	//============================================		
 	})// get request closing tag
