@@ -36,6 +36,15 @@
   color: grey;
   font-size: 38px;
 }
+.card-content {
+  font-size: 14px;
+}
+.card-title {
+  font-size: 14px;
+}
+#cd {
+  font-size: 14px;
+}
 
 .main-header .showcase {
   padding-top: 100px;
@@ -47,15 +56,15 @@
 }
 
 /* Modal for Login */
-.modal { 
-  width: 40% !important; 
-  height: 50% !important
+.modal {
+  width: 40% !important;
+  height: 50% !important;
 }
 h4 {
   padding-top: 20px;
 }
 
-.signin{
+.signin {
   margin: 20px;
 }
 
@@ -66,7 +75,7 @@ h4 {
 
 /* Profile Page */
 #profession-name {
-  width:75%
+  width: 75%;
 }
 .form-area {
   padding: 20px !important;
@@ -78,9 +87,9 @@ h4 {
 
 .logout-link {
   color: black;
-  font-weight: bold
+  font-weight: bold;
 }
-.profile-sec{
+.profile-sec {
   margin-left: 35px;
 }
 
@@ -90,6 +99,3 @@ h4 {
   margin-top: 15px;
   padding-left: 15px;
 }
-
-
-
