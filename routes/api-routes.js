@@ -29,6 +29,11 @@ module.exports = function (app) {
       where: { category: req.params.category },   
       include:[{ all: true}]   
     }).then(function(dbProfession){
+      // var users = dbProfession;
+      // users.forEach(element => {
+      //   console.log(element.createdAt);
+      // });
+
       res.json(dbProfession);
     })
   })
@@ -36,10 +41,8 @@ module.exports = function (app) {
   //GET ROUTE for all profession
   // =============================================================
   app.get('/professions', function (req, res){
-    db.Profession.findAll({
-      where:req.query,
-      include:[{ all: true}]   
-    }).then(function(dbProfession){
+    db.Profession.findAll({})
+    .then(function(dbProfession){
       res.json(dbProfession);
     })
   })

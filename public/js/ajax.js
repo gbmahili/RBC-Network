@@ -1,24 +1,45 @@
 $(document).ready(function(event){
-	
+
 //============================================
-$.get('/professions/:category', function(data){
-	professionTableIteration(JSON.stringify(data));
+//GET REQUEST For searched category data from profession table
+//============================================
+$.get('/professions/:category', function(dbMembers){
+	// console.log('hello')
+	//  console.log(dbMembers);
+	//  dbMembers.forEach(element =>{
+	// 	membercardlooks(element);
+	//  })
+	
 })
 
 
-	//GET REQUEST For all the data from profession table
-	//============================================
+//GET REQUEST For all the data from profession table
+//============================================
 
-	//sending a get request
-	// via route /professions
-	// store the response in the data parameter
-	$.get('/professions', function(data){
-	//============================================
-	// with all the information we get back 
-	// we are calling the function that handles how it's displayed
-	professionTableIteration(data);
-	//============================================		
-	})// get request closing tag
+//sending a get request
+// via route /professions
+// store the response in the data parameter
+$.get('/professions', function(data){
+//============================================
+console.log(data);
+// with all the information we get back 
+// we are calling the function that handles how it's displayed
+//professionTableIteration(data);
+
+//============================================	
+data.forEach(element => {
+	console.log(element.category);
+	var option = `<li >
+					<span width: 492.75px;position: absolute;top: 0px;left: 0px;display: none;opacity: 1">
+					${element.category}
+					</span>
+					</li>`
+	console.log (option);
+
+	$('ul.select-dropdown').append(option)
+})
+//============================================		
+})// get request closing tag
 
 	
 	//============================================
@@ -37,6 +58,8 @@ function professionTableIteration(data){
 		var professionid = currentValue.id;
 			
 		htmlHandler(professionid, occupation);
+
+		options (occupation);
 
 	});
 
@@ -89,13 +112,45 @@ function htmlHandler(pk, occupation){
 
 	$('#professionRow').append(professionList);
 
-	var option = 
-	`<option value="${pk}">${occupation}</option>` 
+	// var option = 
+	// `<option value="${pk}">${occupation}</option>` 
 	
-	$('#options').append(option)
+	// $('#options').append(option)
 
 	
 }
-				
+
+//IMAGE BOX THAT'S TO DISPLAY OF SEARCHED MEMBER
+//======================================
+function membercardlooks(element){
+	// profession category might have to change
+	var membersBox = `<div class="col s6 m4 l3">
+	<div class="card">
+	  <div class="card-image">
+		<img id="image" src="img/profile-avatar.jpg">
+	  </div>
+	  <div class="card-content">
+		<span class="card-title">
+		  <div id="firstName">${element.first_name}</div>
+		  <div id="lastName">${element.last_name}</div>
+		
+		  <div id="City">${element.city}</div>
+		  <div id="State">${element.state}</div>
+	  </div>
+	  <div class="card-action">
+		<a class="teal-text lighten-1" href="#">Email</a>
+		<i class='material-icons  teal-text lighten-1 right'>email</i>
+		</a>
+	  </div>
+	</div>
+  </div>`
+}
+
+function options (occupation){
+	
+	var option = `<option value="${occupation}">${occupation}</option>`
+	$('#options').append(option)		
+}
+	
 //============================================
 });// document on ready function closing tag 
