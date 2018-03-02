@@ -98,8 +98,7 @@ module.exports = function (app) {
         
         //  professionId)      
           dbUser.addProfession(
-           professionId,
-           
+           professionId           
           ) 
         });
   
