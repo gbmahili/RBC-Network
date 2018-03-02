@@ -15,7 +15,6 @@ $('#searchIcon').click(function(event){
 	//alert('hello');
 	var searchIconValue = "Developer";
 	var occupation = {
-
 		occupationName : searchIconValue
 	}	
 
@@ -26,9 +25,14 @@ $('#searchIcon').click(function(event){
 		success : function(dbProfession){
 			var users = (dbProfession[0].Users);
 
-			$('#members').text('');			
+			$('#cd').text('');			
 			$('#userprofile').hide();
+			$("#Profilepage").click(function(){
+				$('#userprofile').show();
+				$('#cd').text("");
+			});
 			$('#header').text('Search Results');
+			$("#Profilepage").text("Back to your profile")
 			users.forEach(element =>{
 				
 				var membersBox = `
@@ -46,7 +50,7 @@ $('#searchIcon').click(function(event){
 						<div id="State">${element.state}</div>
 					</div>
 					<div class="card-action">
-						<a class="teal-text lighten-1" href="#">Email</a>
+						<a href="mailto:${element.email}?Subject=Rutgers%20BootCamp%20Network%2018%20Connection%20Request" target="_top">Send Mail</a>
 						<i class='material-icons  teal-text lighten-1 right'>email</i>
 						</a>
 					</div>
@@ -60,10 +64,6 @@ $('#searchIcon').click(function(event){
 			
 		}
 	});
-
-	// $.get('/occupations', function(data){
-	// 	professionTableIteration(data);	
-	// })
 })
 
 
