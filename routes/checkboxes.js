@@ -24,7 +24,8 @@ module.exports = function(app) {
             // how do we display it to the user
             // lets send it back to them in a json format
             res.json(dbPost);
-            // ok now with that front end should know what to display because this information is whats retrieved in the result in ajax get request
+            // ok now with that front end should know what to display because this information is whats retrieved in the result in ajax get request 
+            // i'm done with my job.  FRONT END take care to display it properly
         })
         
     });

@@ -110,7 +110,7 @@ module.exports = function (sequelize, DataTypes) {
   // Association between user and profession tables.
     User.associate = function (models) {
       User.belongsToMany(models.Profession, {           
-        through: 'user_profession'
+        through: 'user_professions'
       });
     };
   return User;
