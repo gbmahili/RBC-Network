@@ -25,7 +25,7 @@ module.exports = function (app) {
                             password: userPassword
                         }
                     }).then(function(userDetails){
-                        res.json(userDetails);
+                        res.json(userDetails);                        
                     })
                 }else{
                     // User does not exisit
