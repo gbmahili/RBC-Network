@@ -20,6 +20,8 @@ module.exports = function (app) {
     });
   }
 
+
+  // API ROUTE F
   //GET ROUTE for searched profession through url
   // =============================================================
   app.get('/professions/:category', function (req, res){
@@ -38,7 +40,9 @@ module.exports = function (app) {
     })
   })
 
-  //GET ROUTE for searched profession through url
+
+  
+  //GET ROUTE for searched 
   // =============================================================
   app.post('/occupations', function (req, res){
     console.log(req.body);
@@ -94,8 +98,7 @@ module.exports = function (app) {
       zipcode: req.body.zipcode
       
     })
-       .then(function(dbUser){
-        
+       .then(function(dbUser){       
         //  professionId)      
           dbUser.addProfession(
            professionId           
