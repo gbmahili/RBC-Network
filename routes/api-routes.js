@@ -19,15 +19,62 @@ module.exports = function (app) {
         });
     });
   }
-  
 
+  //GET ROUTE for searched profession through url
+  // =============================================================
+  app.get('/professions/:category', function (req, res){
+    console.log('hello' +req.params.category)
+    db.Profession.findAll(
+    {
+      where: { category: req.params.category },   
+      include:[{ all: true}]   
+    }).then(function(dbProfession){
+      // var users = dbProfession;
+      // users.forEach(element => {
+      //   console.log(element.createdAt);
+      // });
+
+      res.json(dbProfession);
+    })
+  })
+
+  //GET ROUTE for searched profession through url
+  // =============================================================
+  app.post('/occupations', function (req, res){
+    console.log(req.body);
+    db.Profession.findAll(
+    {
+      where: { category: req.body.occupationName } ,
+      include:[{ all: true}]    
+  
+    }).then(function(dbProfession){
+      // var users = dbProfession;
+      // users.forEach(element => {
+      //   console.log(element.createdAt);
+      // });
+
+      res.json(dbProfession);
+    })
+  })
+
+  //GET ROUTE for all profession
+  // =============================================================
+  app.get('/professions', function (req, res){
+    db.Profession.findAll({})
+    .then(function(dbProfession){
+      res.json(dbProfession);
+    })
+  })
 
   // POST route for saving a User
+  // =============================================================
   app.post("/api/members", function (req, res) {
     // console.log(req.body);
     let tmpJson = {};
     
     var professionId = req.body.professions;
+    var resume = req.body.resume;
+   console.log(resume);
     // console.log(req.body);
     db.User.create({
 
@@ -48,27 +95,16 @@ module.exports = function (app) {
       
     })
        .then(function(dbUser){
-        console.log(  dbUser.id, 
-         professionId) 
-     
+        
+        //  professionId)      
           dbUser.addProfession(
-           professionId
-
-          )
-         })
-
-          
-      
+           professionId,
+           
+          ) 
+        });
   
+      });  
+      
+   // =============================================================  
 
-    
-    // }).then(function (professionData) {
-    //   tmpJson.professionData = professionData;
-    //   res.status(200).json({
-    //     status: "success",
-    //     reason: tmpJson
-    //   });
-    // });
-  });
 };
-

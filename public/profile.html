@@ -2,6 +2,17 @@
 <html>
 
 <head>
+
+  <!-- Veena's testing Area for materialize -->
+ 
+<link rel = "stylesheet"
+  href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+<script type = "text/javascript"
+  src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+</script> 
+
+<!-- =============================================== -->
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
@@ -77,31 +88,49 @@
   </nav>
 </header>
 <br>
-  <!-- FORM FOR USER TO SEARCH  -->
-  <div class="container">
-    <div class="row">
-      <form class="col s12 m6 offset-m3">
-        <input placeholder="Enter profession" id="profession-name" type="text" class="validate"> <span>
-        <a class="btn waves-effect waves-light waves-green" href="#"> <i class="material-icons">search</i></a></span>
-      </form>
+
+<div class="row">
+    <form class="col s12 m6 offset-m3">
+      <input placeholder="Enter profession" id="profession-name" type="text" class="validate"> <span>
+      <a class="btn waves-effect waves-light waves-green" href="#" id="searchIcon"> <i class="material-icons">search</i></a></span>
+    </form>
+  </div>
+
+    
+    <div class="container">
+        
+    <!-- Profile Image -->
+    <div id="cd" class="row ">
+        <div class="row">
+            <h2 class="grey-text center-align" id="header"></h2>
+            <button class="btn blue" id="Profilepage">Back to Profile</button>
+          </div>
+      
     </div>
 
-    <!-- Profile Image -->
-    <div class="row">
-      <div class="col s6 m3">
-        <div class="card">
-          <div class="card-image">
-            <img src="img/profile-avatar.jpg">
-          </div>
-          <!-- <div class="card-content">
-            <p>About Me Section</p>
-          </div> -->
-          <div class="card-action">
-            <a href="#">Change Profile Picture</a>
-          </div>
-        </div>
-      </div>
+
+<!-- VEENA'S TESTING BEGINS -->
+  <!-- FORM FOR USER TO SEARCH  -->
+  <!-- PORTFOLIO FORM -->
+        <!-- CHOOSE PROFESSION -->
+   
     
+        <!-- SELECT (Must be initialized in javascript) -->
+        <!-- <div class="container">
+          <div class="row">
+            <div class="col s12 m6 offset-m3">
+                <select id="options">
+ 
+                  </select>
+                  
+            </div>
+          </div>
+        </div> -->
+    
+
+  
+<!-- VEENA'S TESTING ENDS -->
+
       <div class="col s12 m6">
         <h5> <span id="first_name"></span> <span id="last_name"></span> </h5> 
         <p>Profession</p>
@@ -110,33 +139,90 @@
         <p><a href="#">Edit Profile</a></p>
       </div>
 
-      <!-- About Me Section -->
-      <div class="col s12 m8">
-        <div class="card grey darken-4">
-          <div class="card-content white-text">
-            <span class="card-title">About Me</span>
-            <p>Displays information user provided</p>
-          </div>
-        </div>
-      </div>
-      <!-- Images -->
-      <div class="col s12 m8">
-        <p class="images"> Images </p>
-      </div>
 
-        <div class="col s3">
-            <img class="materialboxed" src="img/placeholder.png">
-          <!-- Promo Content 1 goes here -->
+
+    <!-- Profile Image -->
+    <div id="userprofile">
+        <div class="row">
+            <div class="col s6 m3">
+              <div class="card">
+                <div class="card-image">
+                  <img src="img/profile-avatar.jpg">
+                </div>
+                <!-- <div class="card-content">
+                  <p>About Me Section</p>
+                </div> -->
+                <div class="card-action">
+                  <a href="#">Change Profile Picture</a>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col s12 m6">
+              <h5> FIRST NAME, LAST NAME</h5> 
+              <p>Profession</p>
+            </div>
+            <div class="col s12 m2 profile-user">
+              <p><a href="#">Edit Profile</a></p>
+            </div>
+      
+            <!-- About Me Section -->
+            <div class="col s12 m8">
+              <div class="card grey darken-4">
+                <div class="card-content white-text">
+                  <span class="card-title">About Me</span>
+                  <p>Displays information user provided</p>
+                </div>
+              </div>
+            </div>
+            <!-- Images -->
+            <div class="col s12 m8">
+              <p class="images"> Images </p>
+            </div>
+      
+              <div class="col s3">
+                  <img class="materialboxed" src="img/placeholder.png">
+                <!-- Promo Content 1 goes here -->
+              </div>
+              <div class="col s3">
+                  <img class="materialboxed" src="img/placeholder.png">
+                <!-- Promo Content 2 goes here -->
+              </div>
+              <div class="col s3">
+                  <img class="materialboxed" src="img/placeholder.png">
+                <!-- Promo Content 3 goes here -->
+              </div>
+              <div class="col s3">
+                <div id="cd" class="row">
+                    <!-- <div id="members"></div> -->
+                    <!-- class="materialboxed" -->
+                    <!-- <div class="col s6 m4 l3">
+                        <div class="card">
+                          <div class="card-image">
+                            <img id="image" src="img/profile-avatar.jpg">
+                          </div>
+                          <div class="card-content">
+                            <span class="card-title">
+                              <div id="firstName">First Name</div>
+                              <div id="lastName">Last Name</div>
+                              <div id="profession">Profession</div>
+                              <div id="City">City</div>
+                              <div id="State">State</div>
+                          </div>
+                          <div class="card-action">
+                            <a class="teal-text lighten-1" href="#">Email</a>
+                            <i class='material-icons  teal-text lighten-1 right'>email</i>
+                            </a>
+                          </div>
+                        </div>
+                      </div> -->
+                </div>
+                
+              <!-- Promo Content 3 goes here -->
+            </div>
         </div>
-        <div class="col s3">
-            <img class="materialboxed" src="img/placeholder.png">
-          <!-- Promo Content 2 goes here -->
-        </div>
-        <div class="col s3">
-            <img class="materialboxed" src="img/placeholder.png">
-          <!-- Promo Content 3 goes here -->
-        </div>
-  </div>
+    </div>
+
 
   </div>
 
@@ -158,7 +244,16 @@
       localStorage.removeItem("rcbUserData");
     });
   });
+
+// Veena;s testing area
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+      
   </script>
+  
+  <script src="js/search.js"></script>
+  <script src="js/ajax.js"></script>
 
 
 </body>
