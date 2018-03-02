@@ -1,16 +1,71 @@
 $(document).ready(function(event){
 
+
+var dropdown = $("ul.select-dropdown");
+// console.log(dropdown.childNodes);
+$('ul.select-dropdown').click(function(){
+	// alert('hello');
+})
+
 //============================================
 //GET REQUEST For searched category data from profession table
 //============================================
-$.get('/professions/:category', function(dbMembers){
-	// console.log('hello')
-	//  console.log(dbMembers);
-	//  dbMembers.forEach(element =>{
-	// 	membercardlooks(element);
-	//  })
-	
+$('#searchIcon').click(function(event){
+	event.preventDefault();
+	//alert('hello');
+	var searchIconValue = "Developer";
+	var occupation = {
+
+		occupationName : searchIconValue
+	}	
+
+	$.ajax({
+		method: "POST",
+		url: "/occupations",
+		data: occupation,
+		success : function(dbProfession){
+			var users = (dbProfession[0].Users);
+
+			$('#members').text('');			
+			$('#userprofile').hide();
+			$('#header').text('Search Results');
+			users.forEach(element =>{
+				
+				var membersBox = `
+					
+					<div class="col s3">
+					<div class="card">
+					<div class="card-image">
+						<img id="image" src="img/profile-avatar.jpg">
+					</div>
+					<div class="card-content">
+						<span class="card-title">
+						<div id="firstName">${element.first_name}</div>
+						<div id="lastName">${element.last_name}</div>		
+						<div id="City">${element.city}</div>
+						<div id="State">${element.state}</div>
+					</div>
+					<div class="card-action">
+						<a class="teal-text lighten-1" href="#">Email</a>
+						<i class='material-icons  teal-text lighten-1 right'>email</i>
+						</a>
+					</div>
+					</div>
+				</div>
+				`;
+				
+				$('#cd').append(membersBox);
+			})
+
+			
+		}
+	});
+
+	// $.get('/occupations', function(data){
+	// 	professionTableIteration(data);	
+	// })
 })
+
 
 
 //GET REQUEST For all the data from profession table
@@ -21,28 +76,14 @@ $.get('/professions/:category', function(dbMembers){
 // store the response in the data parameter
 $.get('/professions', function(data){
 //============================================
-console.log(data);
+// console.log(data);
 // with all the information we get back 
 // we are calling the function that handles how it's displayed
-//professionTableIteration(data);
+professionTableIteration(data);
 
-//============================================	
-data.forEach(element => {
-	console.log(element.category);
-	var option = `<li >
-					<span width: 492.75px;position: absolute;top: 0px;left: 0px;display: none;opacity: 1">
-					${element.category}
-					</span>
-					</li>`
-	console.log (option);
-
-	$('ul.select-dropdown').append(option)
-})
 //============================================		
 })// get request closing tag
-
-	
-	//============================================
+//============================================
 
 function professionTableIteration(data){
 
@@ -59,12 +100,13 @@ function professionTableIteration(data){
 			
 		htmlHandler(professionid, occupation);
 
-		options (occupation);
+		// options (occupation);
+		// membercardlooks(currentValue);
 
 	});
 
 	$(".occupations").click(function(){
-		console.log('working')
+		// console.log('working')
 			// class will be shown
 	var idSelected = $(this).prop('value');
 		if ($(this).prop('checked')){
@@ -144,12 +186,23 @@ function membercardlooks(element){
 	  </div>
 	</div>
   </div>`
+
+  $('#members').append(membersBox);
 }
 
 function options (occupation){
 	
-	var option = `<option value="${occupation}">${occupation}</option>`
-	$('#options').append(option)		
+	var option = `<li 
+					class = "occupation" 
+					id="${occupation}">
+					<span width: 492.75px;position: absolute;top: 0px;left: 0px;display: none;opacity: 1">
+					${occupation}
+					</span>
+					
+					</li>`
+	// console.log (option);
+
+	$('ul.select-dropdown').append(option)		
 }
 	
 //============================================

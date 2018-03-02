@@ -38,6 +38,25 @@ module.exports = function (app) {
     })
   })
 
+  //GET ROUTE for searched profession through url
+  // =============================================================
+  app.post('/occupations', function (req, res){
+    console.log(req.body);
+    db.Profession.findAll(
+    {
+      where: { category: req.body.occupationName } ,
+      include:[{ all: true}]    
+  
+    }).then(function(dbProfession){
+      // var users = dbProfession;
+      // users.forEach(element => {
+      //   console.log(element.createdAt);
+      // });
+
+      res.json(dbProfession);
+    })
+  })
+
   //GET ROUTE for all profession
   // =============================================================
   app.get('/professions', function (req, res){
