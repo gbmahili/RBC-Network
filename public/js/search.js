@@ -4,6 +4,6 @@ $(document).ready(function(event){
     //=========================================
     console.log('im search.js')
     $('#searchIcon').on('click', function(){
-        console.log('im working')
+        // grab the value of the chosen item
     })
 });

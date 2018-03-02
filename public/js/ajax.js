@@ -84,6 +84,11 @@ function htmlHandler(pk, occupation){
 
 	$('#professionRow').append(professionList);
 
+	var option = 
+	`<option value="${pk}">${occupation}</option>` 
+	
+	$('#options').append(option)
+
 	
 }
 				
