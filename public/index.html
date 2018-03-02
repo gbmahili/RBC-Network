@@ -114,7 +114,7 @@
             </div>
             <div class="modal-footer ">
                 <a href="portfolio.html" id="create-account" class="modal-action model-close waves-effect waves-green btn-flat">CREATE ACCOUNT</a>
-              <a href="#!" id="submit" class="modal-action model-close waves-effect waves-green btn waves-green ">Submit</a>
+              <a href="" id="submit" class="modal-action model-close waves-effect waves-green btn waves-green ">Submit</a>
             </div>
           </div>
           <!-- nnnnnn -->
@@ -126,7 +126,7 @@
   </header>
   <div id="login-message"></div>
   <!--Import jQuery before materialize.js-->
-  <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
+  <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>  
   <script type="text/javascript " src="js/materialize.min.js "></script>
   <script>
     $(document).ready(function () {
@@ -149,8 +149,8 @@
 
 
       // Login: - Baraka
-      $("#submit").click(function () {
-
+      $("#submit").click(function (e) {
+        e.preventDefault();
         // Grab login information and store them in a object:
         var loginInformation = {
           userEmail: $("#email").val().trim(),
@@ -164,11 +164,16 @@
           success: function (dbRespoonse) {
             // If user does not exist in the db or the password is wrong
             if (dbRespoonse.rcb_code == "404DNJVB") {
+              // If a user is unable to login, remove any data that was stored
+              localStorage.removeItem("rcbUserData");
               Materialize.toast('Sorry, We cannot find you in our system, please create an account', 5000);              
             }
             // If user exists in the DB and the password is correct:
             if (dbRespoonse.email == loginInformation.userEmail) {
               Materialize.toast('AWESOME NEWS, WE FOUND YOU IN THE DATABASE....You will be redirected once we have the page ready', 5000);
+              var userData = JSON.stringify(dbRespoonse);
+              localStorage.setItem('rcbUserData', userData);
+              window.location.replace("/profile.html");
             }
           }
         });
