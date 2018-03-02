@@ -308,9 +308,32 @@
       // Baraka's Test
       $("#signUpBtn").click(e => {
         e.preventDefault();
+        var tempArray = [];
         var professionsValue = $("input:checkbox:checked").map(function(){
           return $(this).val();
+     
         }).get();
+        console.log(professionsValue)
+
+      var professionName = $("input:checkbox:checked").map(function(){
+
+         return $(this).attr('id');
+
+      }).get();
+      console.log(professionName)
+
+      // professionName= $("input[type='file']").map(function(){
+      //  if ()
+      //   return $(this).val()
+      // })
+      professionName.forEach(element =>{
+        tempArray.push($(`input[name='${element}']`).val());
+      })
+
+
+      console.log(tempArray);
+
+        var resumes = $("input:checkbox:checked")
         // console.log(professionsValue);
         var userData = {
           first_name: $("#first_name").val().trim(),
@@ -326,7 +349,8 @@
           state: $("#state").val().trim(),
           country: $("#country").val().trim(),
           zipcode: $("#zipcode").val().trim(),
-          professions: professionsValue
+          professions: professionsValue,
+          resume: tempArray
         }
         // Log data
   console.log(userData);

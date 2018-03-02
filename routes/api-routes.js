@@ -28,6 +28,8 @@ module.exports = function (app) {
     let tmpJson = {};
     
     var professionId = req.body.professions;
+    var resume = req.body.resume;
+   console.log(resume);
     // console.log(req.body);
     db.User.create({
 
@@ -48,27 +50,18 @@ module.exports = function (app) {
       
     })
        .then(function(dbUser){
-        console.log(  dbUser.id, 
-         professionId) 
-     
+        
+        //  professionId)      
           dbUser.addProfession(
-           professionId
-
-          )
-         })
-
-          
-      
+           professionId,
+           
+          ) 
+        });
   
+      });  
+      
+   // =============================================================  
+ 
 
-    
-    // }).then(function (professionData) {
-    //   tmpJson.professionData = professionData;
-    //   res.status(200).json({
-    //     status: "success",
-    //     reason: tmpJson
-    //   });
-    // });
-  });
-};
 
+    };
