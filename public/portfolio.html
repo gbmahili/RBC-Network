@@ -353,12 +353,12 @@
           resume: tempArray
         }
         // Log data
-  console.log(userData);
+        console.log(userData);
         // Send Data to the server
         $.post("/api/members", userData).then(function (dbResults) {
           console.log(dbResults);
         });
-
+        
       });
 
     });

@@ -38,7 +38,7 @@
         </a>
         <ul class="right hide-on-med-and-down">
           <li>
-            Welcome, "User Name"
+            Welcome, <span id="userName"></span>
           </li>
           <li>
             <a href="https://facebook.com">
@@ -127,8 +127,18 @@
           </div>
         </div> -->
     
+
   
 <!-- VEENA'S TESTING ENDS -->
+
+      <div class="col s12 m6">
+        <h5> <span id="first_name"></span> <span id="last_name"></span> </h5> 
+        <p>Profession</p>
+      </div>
+      <div class="col s12 m2 profile-user">
+        <p><a href="#">Edit Profile</a></p>
+      </div>
+
 
 
     <!-- Profile Image -->
@@ -217,11 +227,22 @@
   </div>
 
   <!--Import jQuery before materialize.js-->
-  <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>
+  <script type="text/javascript " src="https://code.jquery.com/jquery-3.2.1.min.js "></script>  
   <script type="text/javascript " src="js/materialize.min.js "></script>
   <script>
     $(document).ready(function(){
     $('.materialboxed').materialbox();
+    // Baraka Test
+    // Get the user's data from local storage:
+    var userData = JSON.parse(localStorage.getItem("rcbUserData"));
+    // Update the template with the logged in user's data
+    $("#userName, #first_name").text(userData.first_name);
+    $("#last_name").text(userData.last_name);
+
+    // Remove the data in local storage when user logs out
+    $(".logout-link").click(function(){
+      localStorage.removeItem("rcbUserData");
+    });
   });
 
 // Veena;s testing area
