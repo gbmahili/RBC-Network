@@ -140,7 +140,7 @@
                   <a href="#" id="change_profile_picture">Change Profile Picture</a>
                 </div>
                 <!-- Add the form to change profile picture here -->
-                <div id="uploadProfileDiv" >
+                <div id="uploadProfileDiv" class="hide" >
                   <form ref='uploadForm' id='uploadForm' 
                     action='/uploadProfilePhoto' 
                     method='post' 
@@ -222,6 +222,18 @@
         //console.log(dbResults);
       });
     });
+    var isShowing = false;
+    $("#change_profile_picture").click(function(){
+      alert("After you upload the picture, first time users MUST click logout, then login for these changes to take effect!");
+      if(!isShowing){
+        $("#uploadProfileDiv").removeClass("hide");
+        isShowing = true;
+      }else{
+        $("#uploadProfileDiv").addClass("hide");
+        isShowing = false;
+      }
+      
+    })
   });
 
 // Veena;s testing area
