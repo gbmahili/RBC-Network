@@ -116,12 +116,22 @@
             <div class="col s6 m3">
               <div class="card">
                 <div class="card-image">
-                  <img src="img/profile-avatar.jpg">
+                  <img id="userProfileImage" src="img/profile-avatar.jpg">
                 </div>                
                 <div class="card-action">
                   <a href="#" id="change_profile_picture">Change Profile Picture</a>
                 </div>
+                <hr>
                 <!-- Add the form to change profile picture here -->
+                <div id="uploadProfileDiv" class="hide">
+                  <form ref='uploadForm' id='uploadForm' 
+                    action='/uploadProfilePhoto' 
+                    method='post' 
+                    encType="multipart/form-data">
+                    <input type="file" name="profileImage" />
+                    <input class="btn" id="uploadProfileImage" type='submit' value='Upload Profile Photo' />
+                  </form>
+                </div>
                 
               </div>
             </div>
@@ -183,18 +193,48 @@
     // Update the template with the logged in user's data
     $("#userName, #first_name").text(userData.first_name);
     $("#last_name").text(userData.last_name);
+    console.log(userData);
+    $("#userProfileImage").attr("src",`/profileImages/${userData.photo}`);
 
     // Remove the data in local storage when user logs out
     $(".logout-link").click(function(){
       localStorage.removeItem("rcbUserData");
     });
+
+    // Send Data
+    // var test = {
+    //   userData: userData
+    // }
+
+    $("#uploadProfileImage").click(function(e){
+      //e.preventDefault();
+      console.log("hi front end")      
+      $.post("/sendPhotoData", userData).then(function (dbResults) {
+        window.location.replace("/index.html");
+        //console.log(dbResults);
+      });
+    });
+    
+    var isShowing = false;
+    $("#change_profile_picture").click(function(){
+      alert("After you upload the picture, first time users MUST click logout, then login for these changes to take effect!");
+      if(!isShowing){
+        $("#uploadProfileDiv").removeClass("hide");
+        isShowing = true;
+      }else{
+        $("#uploadProfileDiv").addClass("hide");
+        isShowing = false;
+      }
+      
+    })
+    
   });
 
 // Veena;s testing area
   $(document).ready(function() {
     $('select').material_select();
   });
-      
+
   </script>
   
   <script src="js/search.js"></script>

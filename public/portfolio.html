@@ -290,6 +290,8 @@
         console.log(userData);
         // Send Data to the server
         $.post("/api/members", userData).then(function (dbResults) {
+          alert("Thank you for signing up, please click login now!");
+          window.location.replace("/index.html");
           console.log(dbResults);
         });
         
