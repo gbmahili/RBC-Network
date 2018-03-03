@@ -134,7 +134,7 @@
             <div class="col s6 m3">
               <div class="card">
                 <div class="card-image">
-                  <img src="img/profile-avatar.jpg">
+                  <img id="userProfileImage" src="img/profile-avatar.jpg">
                 </div>                
                 <div class="card-action">
                   <a href="#" id="change_profile_picture">Change Profile Picture</a>
@@ -209,7 +209,7 @@
     // Update the template with the logged in user's data
     $("#userName, #first_name").text(userData.first_name);
     $("#last_name").text(userData.last_name);
-
+    $("#userProfileImage").attr("src",`/profileImages/${userData.photo}`);
     // Remove the data in local storage when user logs out
     $(".logout-link").click(function(){
       localStorage.removeItem("rcbUserData");

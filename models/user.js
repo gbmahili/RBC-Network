@@ -53,9 +53,7 @@ module.exports = function (sequelize, DataTypes) {
     //Photo, string type, validates to make sure a url link is added
     photo: {
       type: DataTypes.STRING,
-      validate: {
-        isUrl: true
-      }
+     
     },
 
     //House number, cannot be null, integer type, validates for a min of 1 character and only numbers allowed
