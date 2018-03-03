@@ -25,8 +25,7 @@ $('#searchIcon').click(function(event){
 				$('#nodata').removeClass('hide');
 				console.log('oops not in our database');
 			}
-// console.log(dbProfession[0].category)
-// console.log(dbProfession[0].Users[0].first_name)
+
 			$('#cd').text('');			
 			$('#userprofile').hide();
 			$("#Profilepage").click(function(){
@@ -67,6 +66,7 @@ $('#searchIcon').click(function(event){
 					</div>
 				</div>
 				`;
+				//console.log(element);
 				
 				$('#cd').append(membersBox);
 			})

@@ -7,6 +7,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 const fileUpload = require('express-fileupload');
+
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -22,6 +23,8 @@ var db = require("./models");
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
+// use the upload package
+app.use(fileUpload());
 
 // Static directory
 app.use(express.static("public"));
@@ -34,6 +37,7 @@ require("./routes/api-routes.js")(app);
 require("./routes/login-route.js")(app);
 require("./routes/checkboxes.js")(app);
 require("./routes/upload-route.js")(app);
+
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync({ force: false }).then(function() {
