@@ -9,7 +9,7 @@ module.exports = function(app) {
     var date = new Date();
     var userName = req.body.first_name + "_" + req.body.last_name + "_" + req.body.telephone;
     var id = req.body.id;
-
+console.log(id);
 
     app.post('/uploadProfilePhoto', function (req, res) {
       if (!req.files)

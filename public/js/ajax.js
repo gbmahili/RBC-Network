@@ -40,7 +40,7 @@ $('#searchIcon').click(function(event){
 					<div class="col s3">
 					<div class="card">
 					<div class="card-image">
-						<img id="image" src="img/profile-avatar.jpg">
+					<img id="image" src="/profileImages/${element.photo}">
 					</div>
 					<div class="card-content">
 						<span class="card-title">
