@@ -70,6 +70,16 @@ module.exports = function (app) {
     })
   })
 
+
+//GET ROUTE for all profession
+  // =============================================================
+  app.get('/options', function (req, res){
+    db.Profession.findAll({})
+    .then(function(dbProfession){
+      res.json(dbProfession);
+    })
+  })
+
   // POST route for saving a User
   // =============================================================
   app.post("/api/members", function (req, res) {

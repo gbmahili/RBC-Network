@@ -31,7 +31,7 @@ $('#searchIcon').click(function(event){
 				$('#userprofile').show();
 				$('#cd').text("");
 			});
-			$('#header').text('Search Results');
+			$('#header').text('Our Members');
 			$("#Profilepage").text("Back to your profile")
 			users.forEach(element =>{
 				
@@ -66,7 +66,25 @@ $('#searchIcon').click(function(event){
 	});
 })
 
+//GET REQUEST For all the data from profession table
+//============================================
+$('input.select-dropdown').click(function(){
+	// alert('hello');
+	$.get('/options', function(data){
+		data.forEach(function (element){
+			console.log(element.category);
+			console.log(element.id);
+	
+			var occupation= element.category;
+			var professionid = element.id;
 
+			
+		})
+		options (occupation);
+		console.log(data);	
+		})
+		
+})
 
 //GET REQUEST For all the data from profession table
 //============================================
@@ -190,20 +208,37 @@ function membercardlooks(element){
   $('#members').append(membersBox);
 }
 
+// function options (occupation){
+	
+// 	var option = `<li 
+// 					class = "occupation" 
+// 					id="${occupation}">
+// 					<span width: 492.75px;position: absolute;top: 0px;left: 0px;display: none;opacity: 1">
+// 					${occupation}
+// 					</span>
+					
+// 					</li>`
+// 	// console.log (option);
+
+// 	$('ul.select-dropdown').append(option)		
+// }
+	
 function options (occupation){
 	
-	var option = `<li 
-					class = "occupation" 
-					id="${occupation}">
-					<span width: 492.75px;position: absolute;top: 0px;left: 0px;display: none;opacity: 1">
-					${occupation}
-					</span>
+	var option = 
+	// `<li 
+	// 				class = "occupation" 
+	// 				id="${occupation}">
+	// 				<span width: 492.75px;position: absolute;top: 0px;left: 0px;display: none;opacity: 1">
+	// 				${occupation}
+	// 				</span>
 					
-					</li>`
+	// 				</li>`
+
+					`<option value="${occupation}">${occupation}</option>`
 	// console.log (option);
 
 	$('ul.select-dropdown').append(option)		
 }
-	
 //============================================
 });// document on ready function closing tag 

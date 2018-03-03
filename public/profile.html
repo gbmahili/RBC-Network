@@ -88,14 +88,32 @@
   </nav>
 </header>
 <br>
-
-<div class="row">
+<!-- veena's testing area STARTS -->
+<!-- <div class="row">
     <form class="col s12 m6 offset-m3">
       <input placeholder="Enter profession" id="profession-name" type="text" class="validate"> <span>
       <a class="btn waves-effect waves-light waves-green" href="#" id="searchIcon"> <i class="material-icons">search</i></a></span>
     </form>
-  </div>
+  </div> -->
 
+  <div class="row">
+    <form class="col m12">
+        <div class="row">
+            <div class="input-field col s2"></div>
+            
+            <div class="input-field col s6">
+                <!-- <label>Materialize Select</label> -->
+                <select>
+                    <option value="" disabled="disabled" selected="selected">Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+            <div class="input-field col s2"></div>
+        </div>
+    </form>
+  <!-- VEENA'S TESTING AREA ENDS -->
     
     <div class="container">
         
@@ -191,8 +209,29 @@
   });
 
 // Veena;s testing area
-  $(document).ready(function() {
-    $('select').material_select();
+  // $(document).ready(function() {
+  //   $('select').material_select();
+  // });
+
+  // initialize
+  $('select').material_select();
+
+  // setup listener for custom event to re-initialize on change
+  $('.select').on('contentChanged', function() {
+    $(this).material_select();
+  });
+
+  // update function for demo purposes
+  $("#myButton").click(function() {
+    
+     // add new value
+    var newValue = getNewDoggo();
+    var $newOpt = $("<option>").attr("value",newValue).text(newValue)
+    $("#myDropdown").append($newOpt);
+
+    // fire custom event anytime you've updated select
+    $("#myDropdown").trigger('contentChanged');
+    
   });
       
   </script>

@@ -213,7 +213,7 @@
               </div>
               </div>             
               
-            <button class="btn blue" id="signUpBtn">Sign Up</button>
+            <a  class="btn blue" id="signUpBtn">Sign Up</a>
 
             </form>
             
@@ -234,6 +234,7 @@
         console.log($('.modal'));
         $('.modal').modal("open");
       });
+      
       // JAVASCRIPT START HERE //
       $('.modal ').modal();
       // initialize select list
@@ -251,6 +252,7 @@
       // Baraka's Test
       $("#signUpBtn").click(e => {
         e.preventDefault();
+
         var tempArray = [];
         var professionsValue = $("input:checkbox:checked").map(function(){
           return $(this).val();
@@ -289,13 +291,21 @@
         // Log data
         console.log(userData);
         // Send Data to the server
-        $.post("/api/members", userData).then(function (dbResults) {
-          console.log(dbResults);
-        });
+        $.ajax({
+          method: "POST",
+          url: "/api/members",
+          data: userData,
+          success : function(dbResults){
+            console.log(dbResults);
+            console.log('happy');
+            window.location.replace("/profile.html");
+          }
         
+        });
+       
       });
 
-    });
+    });//closing tag for ready function
   </script>
 
   <!-- Veena'sArea -->
