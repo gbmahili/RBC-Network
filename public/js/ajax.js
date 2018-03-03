@@ -12,8 +12,8 @@ $('ul.select-dropdown').click(function(){
 //============================================
 $('#searchIcon').click(function(event){
 	event.preventDefault();
-	//alert('hello');
-	var searchIconValue = "Developer";
+
+	var searchIconValue = $('#profession-name').val().trim();
 	var occupation = {
 		occupationName : searchIconValue
 	}	
@@ -62,8 +62,7 @@ $('#searchIcon').click(function(event){
 				
 				$('#cd').append(membersBox);
 			})
-
-			
+	
 		}
 	});
 })
