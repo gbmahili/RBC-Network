@@ -77,7 +77,6 @@ module.exports = function (app) {
    console.log(resume);
     // console.log(req.body);
     db.User.create({
-
       first_name: req.body.first_name,
       last_name: req.body.last_name,
       email: req.body.email,
@@ -85,22 +84,22 @@ module.exports = function (app) {
       date_of_birth: req.body.date_of_birth,
       gender: req.body.gender,
       telephone: req.body.telephone,
-      // photo: req.body.photo,
       house_number: req.body.house_number,
       street_name: req.body.street_name,
       city: req.body.city,
       state: req.body.state,
       country: req.body.country,
-      zipcode: req.body.zipcode
-      
+      zipcode: req.body.zipcode      
     })
-       .then(function(dbUser){
-        
+    .then(function(dbUser){
         //  professionId)      
           dbUser.addProfession(
            professionId  
-          ) 
-        });
+          );
+         
+    }).then(function(data){
+      return res.redirect('/profile.html');
+    });
   
       });  
       

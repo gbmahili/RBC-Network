@@ -24,6 +24,7 @@ $('#searchIcon').click(function(event){
 		data: occupation,
 		success : function(dbProfession){
 			var users = (dbProfession[0].Users);
+			console.log(users);
 
 			$('#cd').text('');			
 			$('#userprofile').hide();
@@ -40,7 +41,7 @@ $('#searchIcon').click(function(event){
 					<div class="col s3">
 					<div class="card">
 					<div class="card-image">
-						<img id="image" src="img/profile-avatar.jpg">
+						<img id="image" src="/profileImages/${element.photo}">
 					</div>
 					<div class="card-content">
 						<span class="card-title">
@@ -57,6 +58,7 @@ $('#searchIcon').click(function(event){
 					</div>
 				</div>
 				`;
+				//console.log(element);
 				
 				$('#cd').append(membersBox);
 			})
