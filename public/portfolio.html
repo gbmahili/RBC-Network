@@ -95,7 +95,7 @@
 
           <br>
           <!-- GENERAL INFO FORM -->
-          <form class="grey lighten-3 form-area">
+          <form class="form-area">
 
             <div class="row">
             
@@ -212,8 +212,9 @@
                 </div>
               </div>
               </div>             
+             <center><a  class="btn blue" id="signUpBtn">Sign Up</a></center>
               
-            <a  class="btn blue" id="signUpBtn">Sign Up</a>
+         
 
             </form>
             
@@ -295,10 +296,15 @@
           method: "POST",
           url: "/api/members",
           data: userData,
-          success : function(dbResults){
-            console.log(dbResults);
-            console.log('happy');
-            window.location.replace("/profile.html");
+          success : function(data){
+            console.log(data);
+            var userData = JSON.stringify(data);
+
+            // console.log(userData);
+            // localStorage.setItem('rcbUserData', userData);
+            alert("Thank you for signing up, please click login now!");
+            window.location.replace("/index.html");
+
           }
         
         });

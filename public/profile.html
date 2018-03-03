@@ -37,9 +37,7 @@
           <i class="fa fa-bars"></i>
         </a>
         <ul class="right hide-on-med-and-down">
-          <li>
-            Welcome, <span id="userName"></span>
-          </li>
+         
           <li>
             <a href="https://facebook.com">
               <i class="fab fa-facebook"></i>
@@ -56,7 +54,10 @@
             </a>
           </li>
           <li>
-              <a class="logout-link" href="index.html">Logout</a>
+            Welcome, <span id="userName"></span>
+          </li>
+          <li>
+              <a class="logout-link" href="index.html">LOGOUT</a>
             </li>
         </ul>
         <ul class="side-nav" id="mobile-nav">
@@ -132,7 +133,7 @@
 
     <!-- Profile Image -->
     <div id="userprofile">
-        <div class="row">
+        <div class="row card" id="membercard">
             <div class="col s6 m3">
               <div class="card">
                 <div class="card-image">
@@ -154,40 +155,24 @@
               </div>
             </div>
           
-            <div class="col s12 m6">
-              <h5><span id="first_name"></span> <span id="last_name"></span></h5> 
-              <p>Profession</p>
-            </div>
+          
             <div class="col s12 m2 profile-user">
-              <p><a href="#">Edit Profile</a></p>
+              <p><a id="delprofile" href="#">Delete Profile</a></p>
             </div>
       
             <!-- About Me Section -->
             <div class="col s12 m8">
               <div class="card grey darken-4">
                 <div class="card-content white-text">
-                  <span class="card-title">About Me</span>
-                  <p>Displays information user provided</p>
+                  
+                    <h5><span id="first_name"></span> <span id="last_name"></span></h5> 
+                    <p>Profession</p>
+                  
                 </div>
               </div>
             </div>
-            <!-- Images -->
-            <div class="col s12 m8">
-              <p class="images"> Images </p>
-            </div>
-      
-              <div class="col s3">
-                  <img class="materialboxed" src="img/placeholder.png">
-                <!-- Promo Content 1 goes here -->
-              </div>
-              <div class="col s3">
-                  <img class="materialboxed" src="img/placeholder.png">
-                <!-- Promo Content 2 goes here -->
-              </div>
-              <div class="col s3">
-                  <img class="materialboxed" src="img/placeholder.png">
-                <!-- Promo Content 3 goes here -->
-              </div>
+           
+              
               <div class="col s3">
                 <div id="cd" class="row">
                   <!-- All members searched will show up here -->
@@ -205,6 +190,15 @@
   <script>
     $(document).ready(function(){
     $('.materialboxed').materialbox();
+    $('.dropdown-button').dropdown({
+        constrainWidth: false,
+        hover: true,
+        belowOrigin: true,
+        alignment: 'left'
+      });
+
+      // JAVASCRIPT START HERE //
+      $(".button-collapse").sideNav();
     // Baraka Test
     // Get the user's data from local storage:
     var userData = JSON.parse(localStorage.getItem("rcbUserData"));
@@ -235,14 +229,29 @@
         isShowing = false;
       }
       
+    });
+     //DELETE PROFILE
+$('#delprofile').click(function(event){
+	event.preventDefault();
+	console.log(userData.id);
+	// var listItemData = $(this).parent("td").parent("tr").data("author");
+    // var id = listItemData.id;
+    $.ajax({
+      method: "DELETE",
+      url: "/delete",
+      data: userData 
     })
+    .then(function(result){
+      console.log(result);
+    });
+  })
   });
 
 // Veena;s testing area
   $(document).ready(function() {
     $('select').material_select();
   });
-  
+ 
   </script>
   
   <script src="js/search.js"></script>

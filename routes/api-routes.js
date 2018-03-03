@@ -113,10 +113,27 @@ module.exports = function (app) {
           dbUser.addProfession(
            professionId  
           ) 
-        });
+        })
+        .then(function(data){
+          // res.json(data);
+        res.redirect('/index.html');
+           });
   
       });  
       
    // =============================================================  
+
+   //DELETE BUTTON REQUEST
+   // =============================================================  
+   app.delete("/delete", function(req, res) {
+    db.User.destroy({
+      where: {
+        id: req.body.id
+      }
+    }).then(function(results) {
+      return res.redirect('/index.html');
+    });
+  });
+
 
 };

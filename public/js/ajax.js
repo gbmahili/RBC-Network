@@ -1,11 +1,6 @@
 $(document).ready(function(event){
 
 
-var dropdown = $("ul.select-dropdown");
-// console.log(dropdown.childNodes);
-$('ul.select-dropdown').click(function(){
-	// alert('hello');
-})
 
 //============================================
 //GET REQUEST For searched category data from profession table
@@ -39,7 +34,14 @@ $('#searchIcon').click(function(event){
 				$('#cd').text("");
 				$('#nodata').addClass('hide');
 			});
-			$('#header').text('Our Members');
+			$('#header').addClass('card').css(
+				{
+					'backgroundColor':'black',
+					'color': 'white',
+					'padding': '10px'
+					// 'font-variant': 'small-caps'
+				}
+			).text('OUR MEMBERS');
 			$("#Profilepage").text("Back to your profile")
 			users.forEach(function (element, index){
 				// console.log(profession)
@@ -50,12 +52,12 @@ $('#searchIcon').click(function(event){
 					<div class="card-image">
 					<img id="image" src="/profileImages/${element.photo}">
 					</div>
-					<div class="card-content" style= "background-color:black; color:white; text-align:center; margin-bottom:5px;" >
+					<div class="card-content" style= " background-color:black; color:white; text-align:center; margin-bottom:5px;" >
 						<span class="card-title">
-						<div id="profession" style= "background-color:black; color:white; text-align:center; margin-bottom:5px;" > ${profession.category}</div>
-						<div id="firstName" style= "background-color:teal; color:white; text-align:center; margin-bottom:5px;">${element.first_name}, ${element.last_name}</div>	
-						<div id="City" style= "background-color:black; color:white; text-align:center;">${element.city}</div>
-						<div id="State" style= "background-color:black; color:white; text-align:center;">${element.state}</div>
+						<div id="profession" style= "background-color:black; color:white; text-align:center; margin-bottom:5px; font-size:14px;" > ${profession.category.toUpperCase()}</div>
+						<div id="firstName" style= "background-color:teal; color:white; text-align:center; margin-bottom:5px; font-size:16px;">${element.first_name.toUpperCase()}, ${element.last_name.toUpperCase()}</div>	
+						<div id="City" style= "background-color:black; color:white; text-align:center;  font-size:14px;">${element.city.toUpperCase()}, ${element.state.toUpperCase()}</div>
+						
 					</div>
 					<div class="card-action">
 						<a href="mailto:${element.email}?Subject=Rutgers%20BootCamp%20Network%2018%20Connection%20Request" target="_top">Send Mail</a>
@@ -88,7 +90,7 @@ $('input.select-dropdown').click(function(){
 
 			
 		})
-		options (occupation);
+		
 		console.log(data);	
 		})
 		
@@ -97,14 +99,9 @@ $('input.select-dropdown').click(function(){
 //GET REQUEST For all the data from profession table
 //============================================
 
-//sending a get request
-// via route /professions
-// store the response in the data parameter
 $.get('/professions', function(data){
 //============================================
-// console.log(data);
-// with all the information we get back 
-// we are calling the function that handles how it's displayed
+
 professionTableIteration(data);
 
 //============================================		
@@ -112,22 +109,12 @@ professionTableIteration(data);
 //============================================
 
 function professionTableIteration(data){
-
-	//once the get request gets the response 
-	//lets log the data into terminal for tests	
-	
-	
 	data.forEach(function (currentValue, index, array){
-		// console.log(currentValue.occupation);
-		// console.log(currentValue.id);
-
+	
 		var occupation= currentValue.category;
 		var professionid = currentValue.id;
 			
 		htmlHandler(professionid, occupation);
-
-		// options (occupation);
-		// membercardlooks(currentValue);
 
 	});
 
@@ -161,7 +148,7 @@ function htmlHandler(pk, occupation){
 	id="${occupation}"/>
 
 	<label for="${occupation}">
-		<span style= "color:#F4FCFB;">
+		<span style= "color:gray;">
 		${occupation}
 		</span>
 	</label>
@@ -179,11 +166,6 @@ function htmlHandler(pk, occupation){
 	</div>`;
 
 	$('#professionRow').append(professionList);
-
-	// var option = 
-	// `<option value="${pk}">${occupation}</option>` 
-	
-	// $('#options').append(option)
 
 	
 }
@@ -216,37 +198,9 @@ function membercardlooks(element){
   $('#members').append(membersBox);
 }
 
-// function options (occupation){
-	
-// 	var option = `<li 
-// 					class = "occupation" 
-// 					id="${occupation}">
-// 					<span width: 492.75px;position: absolute;top: 0px;left: 0px;display: none;opacity: 1">
-// 					${occupation}
-// 					</span>
-					
-// 					</li>`
-// 	// console.log (option);
 
-// 	$('ul.select-dropdown').append(option)		
-// }
-	
-function options (occupation){
-	
-	var option = 
-	// `<li 
-	// 				class = "occupation" 
-	// 				id="${occupation}">
-	// 				<span width: 492.75px;position: absolute;top: 0px;left: 0px;display: none;opacity: 1">
-	// 				${occupation}
-	// 				</span>
-					
-	// 				</li>`
 
-					`<option value="${occupation}">${occupation}</option>`
-	// console.log (option);
 
-	$('ul.select-dropdown').append(option)		
-}
+	
 //============================================
 });// document on ready function closing tag 

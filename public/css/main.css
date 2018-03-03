@@ -1,10 +1,20 @@
-.main-header {
+/* .main-header {
   background: url(../img/meeting2.jpeg);
   background-size: cover;
   background-position: center;
-  min-height: 600px;
+  height: 100%;
+  color: #fff;
+} */
+
+.main-header{ 
+  background: url(../img/meeting2.jpeg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: #fff;
 }
+
 .portfolio-header {
   background: url(../img/pencil.jpeg);
   background-size: cover;
@@ -87,7 +97,7 @@ h4 {
 }
 
 .logout-link {
-  color: black;
+  color: rgb(248, 247, 247);
   font-weight: bold;
 }
 .profile-sec {
@@ -108,3 +118,10 @@ h4 {
   padding: 20px;
   text-align: center;
 }
+/* #membercard{
+  background-color: black !important;
+} */
+body{
+  background-color: rgb(251, 255, 227)
+}
+
