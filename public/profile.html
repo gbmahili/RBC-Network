@@ -140,7 +140,15 @@
                   <a href="#" id="change_profile_picture">Change Profile Picture</a>
                 </div>
                 <!-- Add the form to change profile picture here -->
-                
+                <div id="uploadProfileDiv" >
+                  <form ref='uploadForm' id='uploadForm' 
+                    action='/uploadProfilePhoto' 
+                    method='post' 
+                    encType="multipart/form-data">
+                    <input type="file" name="profileImage" />
+                    <input class="btn" id="uploadProfileImage" type='submit' value='Upload Profile Photo' />
+                  </form>
+                </div>
               </div>
             </div>
           
