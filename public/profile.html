@@ -214,34 +214,21 @@
     $(".logout-link").click(function(){
       localStorage.removeItem("rcbUserData");
     });
+    $("#uploadProfileImage").click(function(e){
+      //e.preventDefault();
+      console.log("hi front end")      
+      $.post("/sendPhotoData", userData).then(function (dbResults) {
+        window.location.replace("/index.html");
+        //console.log(dbResults);
+      });
+    });
   });
 
 // Veena;s testing area
-  // $(document).ready(function() {
-  //   $('select').material_select();
-  // });
-
-  // initialize
-  $('select').material_select();
-
-  // setup listener for custom event to re-initialize on change
-  $('.select').on('contentChanged', function() {
-    $(this).material_select();
+  $(document).ready(function() {
+    $('select').material_select();
   });
-
-  // update function for demo purposes
-  $("#myButton").click(function() {
-    
-     // add new value
-    var newValue = getNewDoggo();
-    var $newOpt = $("<option>").attr("value",newValue).text(newValue)
-    $("#myDropdown").append($newOpt);
-
-    // fire custom event anytime you've updated select
-    $("#myDropdown").trigger('contentChanged');
-    
-  });
-      
+  
   </script>
   
   <script src="js/search.js"></script>
