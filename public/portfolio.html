@@ -57,27 +57,23 @@
             </li>
           </ul>
           <ul class="side-nav" id="mobile-nav">
-            <h4 class="purple-text text-darken-4 center">Quazzu</h4>
+            <h4 class="teal-text text-darken-4 center">RCB Network</h4>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li>
+            <a href="index.html">
+              <i class="fa fa-home grey-text text-darken-4"></i> Home</a>
+          </li>
+          <li>
+            <a href="portfolio.html">
+              <i class="fa fa-users grey-text text-darken-4"></i> Sign Up</a>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
             <li>
-              <div class="divider"></div>
-            </li>
-            <li>
-              <a href="index.html">
-                <i class="fa fa-home grey-text text-darken-4"></i> Home</a>
-            </li>
-            <li>
-              <a href="solutions.html">
-                <i class="fa fa-cog grey-text text-darken-4"></i> Solutions</a>
-            </li>
-            <li>
-              <a href="signup.html">
-                <i class="fa fa-users grey-text text-darken-4"></i> Sign Up</a>
-            </li>
-            <li>
-              <div class="divider"></div>
-            </li>
-            <li>
-              <a href="/index.html" class="btn purple">Login</a>
+              <a href="/index.html" class="btn teal">Login</a>
             </li>
           </ul>
         </div>
@@ -230,6 +226,15 @@
   <script type="text/javascript " src="js/materialize.min.js "></script>
   <script>
     $(document).ready(function () {
+      $('.dropdown-button').dropdown({
+        constrainWidth: false,
+        hover: true,
+        belowOrigin: true,
+        alignment: 'left'
+      });
+
+      // JAVASCRIPT START HERE //
+      $(".button-collapse").sideNav();
       // Custom JS & jQuery here  
       $("#signUp").on("click", function () {
         console.log($('.modal'));
