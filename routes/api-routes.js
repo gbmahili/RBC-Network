@@ -20,6 +20,8 @@ module.exports = function (app) {
     });
   }
 
+
+  // API ROUTE F
   //GET ROUTE for searched profession through url
   // =============================================================
   app.get('/professions/:category', function (req, res){
@@ -38,7 +40,9 @@ module.exports = function (app) {
     })
   })
 
-  //GET ROUTE for searched profession through url
+
+  
+  //GET ROUTE for searched 
   // =============================================================
   app.post('/occupations', function (req, res){
     console.log(req.body);
@@ -60,6 +64,16 @@ module.exports = function (app) {
   //GET ROUTE for all profession
   // =============================================================
   app.get('/professions', function (req, res){
+    db.Profession.findAll({})
+    .then(function(dbProfession){
+      res.json(dbProfession);
+    })
+  })
+
+
+//GET ROUTE for all profession
+  // =============================================================
+  app.get('/options', function (req, res){
     db.Profession.findAll({})
     .then(function(dbProfession){
       res.json(dbProfession);
@@ -90,19 +104,31 @@ module.exports = function (app) {
       state: req.body.state,
       country: req.body.country,
       zipcode: req.body.zipcode      
-    })
-    .then(function(dbUser){
+    }).then(function(dbUser){       
         //  professionId)      
           dbUser.addProfession(
            professionId  
-          );
-         
-    }).then(function(data){
-      return res.redirect('/profile.html');
-    });
-  
+          ) 
+        })
+        .then(function(data){
+          // res.json(data);
+        res.redirect('/index.html');
+           });
       });  
       
    // =============================================================  
+
+   //DELETE BUTTON REQUEST
+   // =============================================================  
+   app.delete("/delete", function(req, res) {
+    db.User.destroy({
+      where: {
+        id: req.body.id
+      }
+    }).then(function(results) {
+      return res.redirect('/index.html');
+    });
+  });
+
 
 };

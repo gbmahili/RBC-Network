@@ -28,7 +28,7 @@ app.use(fileUpload());
 
 // Static directory
 app.use(express.static("public"));
-
+app.use(fileUpload());
 // Routes
 // =============================================================
 

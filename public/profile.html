@@ -37,9 +37,7 @@
           <i class="fa fa-bars"></i>
         </a>
         <ul class="right hide-on-med-and-down">
-          <li>
-            Welcome, <span id="userName"></span>
-          </li>
+         
           <li>
             <a href="https://facebook.com">
               <i class="fab fa-facebook"></i>
@@ -56,11 +54,14 @@
             </a>
           </li>
           <li>
-              <a class="logout-link" href="index.html">Logout</a>
+            Welcome, <span id="userName"></span>
+          </li>
+          <li>
+              <a class="logout-link" href="index.html">LOGOUT</a>
             </li>
         </ul>
         <ul class="side-nav" id="mobile-nav">
-          <h4 class="purple-text text-darken-4 center">Quazzu</h4>
+          <h4 class="teal-text text-darken-4 center">RCB Network</h4>
           <li>
             <div class="divider"></div>
           </li>
@@ -69,18 +70,14 @@
               <i class="fa fa-home grey-text text-darken-4"></i> Home</a>
           </li>
           <li>
-            <a href="solutions.html">
-              <i class="fa fa-cog grey-text text-darken-4"></i> Solutions</a>
-          </li>
-          <li>
-            <a href="signup.html">
+            <a href="portfolio.html">
               <i class="fa fa-users grey-text text-darken-4"></i> Sign Up</a>
           </li>
           <li>
             <div class="divider"></div>
           </li>
           <li>
-            <a href="#" class="btn purple">Login</a>
+            <a href="index.html" class="btn teal">Login</a>
           </li>
         </ul>
       </div>
@@ -88,14 +85,34 @@
   </nav>
 </header>
 <br>
-
+<!-- veena's testing area STARTS -->
 <div class="row">
     <form class="col s12 m6 offset-m3">
-      <input placeholder="Enter profession" id="profession-name" type="text" class="validate"> <span>
-      <a class="btn waves-effect waves-light waves-green" href="#" id="searchIcon"> <i class="material-icons">search</i></a></span>
+      <input placeholder="Enter profession" id="profession-name" type="text" class="validate"> 
+      <span>
+      <a class="btn waves-effect waves-light waves-green" href="#" id="searchIcon"> <i class="material-icons">search</i></a>
+    </span>
     </form>
   </div>
 
+  <!-- <div class="row">
+    <form class="col m12">
+        <div class="row">
+            <div class="input-field col s2"></div>
+            
+            <div class="input-field col s6"> -->
+                <!-- <label>Materialize Select</label> -->
+                <!-- <select>
+                    <option value="" disabled="disabled" selected="selected">Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+            <div class="input-field col s2"></div>
+        </div>
+    </form> -->
+  <!-- VEENA'S TESTING AREA ENDS -->
     
     <div class="container">
         
@@ -112,7 +129,7 @@
 
     <!-- Profile Image -->
     <div id="userprofile">
-        <div class="row">
+        <div class="row card" id="membercard">
             <div class="col s6 m3">
               <div class="card">
                 <div class="card-image">
@@ -123,7 +140,8 @@
                 </div>
                 <hr>
                 <!-- Add the form to change profile picture here -->
-                <div id="uploadProfileDiv" class="hide">
+
+                <div id="uploadProfileDiv" class="hide" >
                   <form ref='uploadForm' id='uploadForm' 
                     action='/uploadProfilePhoto' 
                     method='post' 
@@ -132,44 +150,27 @@
                     <input class="btn" id="uploadProfileImage" type='submit' value='Upload Profile Photo' />
                   </form>
                 </div>
-                
               </div>
             </div>
           
-            <div class="col s12 m6">
-              <h5><span id="first_name"></span> <span id="last_name"></span></h5> 
-              <p>Profession</p>
-            </div>
+          
             <div class="col s12 m2 profile-user">
-              <p><a href="#">Edit Profile</a></p>
+              <p><a id="delprofile" href="#">Delete Profile</a></p>
             </div>
       
             <!-- About Me Section -->
             <div class="col s12 m8">
               <div class="card grey darken-4">
                 <div class="card-content white-text">
-                  <span class="card-title">About Me</span>
-                  <p>Displays information user provided</p>
+                  
+                    <h5><span id="first_name"></span> <span id="last_name"></span></h5> 
+                    <p>Profession</p>
+                  
                 </div>
               </div>
             </div>
-            <!-- Images -->
-            <div class="col s12 m8">
-              <p class="images"> Images </p>
-            </div>
-      
-              <div class="col s3">
-                  <img class="materialboxed" src="img/placeholder.png">
-                <!-- Promo Content 1 goes here -->
-              </div>
-              <div class="col s3">
-                  <img class="materialboxed" src="img/placeholder.png">
-                <!-- Promo Content 2 goes here -->
-              </div>
-              <div class="col s3">
-                  <img class="materialboxed" src="img/placeholder.png">
-                <!-- Promo Content 3 goes here -->
-              </div>
+           
+              
               <div class="col s3">
                 <div id="cd" class="row">
                   <!-- All members searched will show up here -->
@@ -177,7 +178,7 @@
             </div>
         </div>
     </div>
-
+<div id ="nodata" class="hide">OOPS! SORRY.  WE DON'T HAVE ANY MEMBERS RELATED TO YOUR SEARCH</div>
 
   </div>
 
@@ -187,25 +188,29 @@
   <script>
     $(document).ready(function(){
     $('.materialboxed').materialbox();
+    $('.dropdown-button').dropdown({
+        constrainWidth: false,
+        hover: true,
+        belowOrigin: true,
+        alignment: 'left'
+      });
+
+      // JAVASCRIPT START HERE //
+      $(".button-collapse").sideNav();
     // Baraka Test
     // Get the user's data from local storage:
     var userData = JSON.parse(localStorage.getItem("rcbUserData"));
     // Update the template with the logged in user's data
     $("#userName, #first_name").text(userData.first_name);
     $("#last_name").text(userData.last_name);
-    console.log(userData);
+
     $("#userProfileImage").attr("src",`/profileImages/${userData.photo}`);
 
     // Remove the data in local storage when user logs out
     $(".logout-link").click(function(){
       localStorage.removeItem("rcbUserData");
     });
-
-    // Send Data
-    // var test = {
-    //   userData: userData
-    // }
-
+      
     $("#uploadProfileImage").click(function(e){
       //e.preventDefault();
       console.log("hi front end")      
@@ -214,7 +219,7 @@
         //console.log(dbResults);
       });
     });
-    
+
     var isShowing = false;
     $("#change_profile_picture").click(function(){
       alert("After you upload the picture, first time users MUST click logout, then login for these changes to take effect!");
@@ -226,15 +231,29 @@
         isShowing = false;
       }
       
+    });
+     //DELETE PROFILE
+$('#delprofile').click(function(event){
+	event.preventDefault();
+	console.log(userData.id);
+	// var listItemData = $(this).parent("td").parent("tr").data("author");
+    // var id = listItemData.id;
+    $.ajax({
+      method: "DELETE",
+      url: "/delete",
+      data: userData 
     })
-    
+    .then(function(result){
+      console.log(result);
+    });
+  })
+
   });
 
 // Veena;s testing area
   $(document).ready(function() {
     $('select').material_select();
   });
-
   </script>
   
   <script src="js/search.js"></script>

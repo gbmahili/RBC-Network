@@ -1,19 +1,14 @@
 $(document).ready(function(event){
 
 
-var dropdown = $("ul.select-dropdown");
-// console.log(dropdown.childNodes);
-$('ul.select-dropdown').click(function(){
-	// alert('hello');
-})
 
 //============================================
 //GET REQUEST For searched category data from profession table
 //============================================
 $('#searchIcon').click(function(event){
 	event.preventDefault();
-	//alert('hello');
-	var searchIconValue = "Developer";
+
+	var searchIconValue = $('#profession-name').val().trim();
 	var occupation = {
 		occupationName : searchIconValue
 	}	
@@ -24,31 +19,44 @@ $('#searchIcon').click(function(event){
 		data: occupation,
 		success : function(dbProfession){
 			var users = (dbProfession[0].Users);
-			console.log(users);
+			var profession = dbProfession[0];
+			var noProfessionInDb = (dbProfession[0].Users[0]);
+			if(noProfessionInDb == undefined){
+				$('#nodata').removeClass('hide');
+				console.log('oops not in our database');
+			}
 
 			$('#cd').text('');			
 			$('#userprofile').hide();
 			$("#Profilepage").click(function(){
 				$('#userprofile').show();
 				$('#cd').text("");
+				$('#nodata').addClass('hide');
 			});
-			$('#header').text('Search Results');
+			$('#header').addClass('card').css(
+				{
+					'backgroundColor':'black',
+					'color': 'white',
+					'padding': '10px'
+					// 'font-variant': 'small-caps'
+				}
+			).text('OUR MEMBERS');
 			$("#Profilepage").text("Back to your profile")
-			users.forEach(element =>{
-				
+			users.forEach(function (element, index){
+				// console.log(profession)
 				var membersBox = `
 					
 					<div class="col s3">
 					<div class="card">
 					<div class="card-image">
-						<img id="image" src="/profileImages/${element.photo}">
+					<img id="image" src="/profileImages/${element.photo}">
 					</div>
-					<div class="card-content">
+					<div class="card-content" style= " background-color:black; color:white; text-align:center; margin-bottom:5px;" >
 						<span class="card-title">
-						<div id="firstName">${element.first_name}</div>
-						<div id="lastName">${element.last_name}</div>		
-						<div id="City">${element.city}</div>
-						<div id="State">${element.state}</div>
+						<div id="profession" style= "background-color:black; color:white; text-align:center; margin-bottom:5px; font-size:14px;" > ${profession.category.toUpperCase()}</div>
+						<div id="firstName" style= "background-color:teal; color:white; text-align:center; margin-bottom:5px; font-size:16px;">${element.first_name.toUpperCase()}, ${element.last_name.toUpperCase()}</div>	
+						<div id="City" style= "background-color:black; color:white; text-align:center;  font-size:14px;">${element.city.toUpperCase()}, ${element.state.toUpperCase()}</div>
+						
 					</div>
 					<div class="card-action">
 						<a href="mailto:${element.email}?Subject=Rutgers%20BootCamp%20Network%2018%20Connection%20Request" target="_top">Send Mail</a>
@@ -62,25 +70,38 @@ $('#searchIcon').click(function(event){
 				
 				$('#cd').append(membersBox);
 			})
-
-			
+	
 		}
 	});
 })
 
 
+//GET REQUEST For all the data from profession table
+//============================================
+$('input.select-dropdown').click(function(){
+	// alert('hello');
+	$.get('/options', function(data){
+		data.forEach(function (element){
+			console.log(element.category);
+			console.log(element.id);
+	
+			var occupation= element.category;
+			var professionid = element.id;
+
+			
+		})
+		
+		console.log(data);	
+		})
+		
+})
 
 //GET REQUEST For all the data from profession table
 //============================================
 
-//sending a get request
-// via route /professions
-// store the response in the data parameter
 $.get('/professions', function(data){
 //============================================
-// console.log(data);
-// with all the information we get back 
-// we are calling the function that handles how it's displayed
+
 professionTableIteration(data);
 
 //============================================		
@@ -88,22 +109,12 @@ professionTableIteration(data);
 //============================================
 
 function professionTableIteration(data){
-
-	//once the get request gets the response 
-	//lets log the data into terminal for tests	
-	
-	
 	data.forEach(function (currentValue, index, array){
-		// console.log(currentValue.occupation);
-		// console.log(currentValue.id);
-
+	
 		var occupation= currentValue.category;
 		var professionid = currentValue.id;
 			
 		htmlHandler(professionid, occupation);
-
-		// options (occupation);
-		// membercardlooks(currentValue);
 
 	});
 
@@ -137,7 +148,7 @@ function htmlHandler(pk, occupation){
 	id="${occupation}"/>
 
 	<label for="${occupation}">
-		<span style= "color:#F4FCFB;">
+		<span style= "color:gray;">
 		${occupation}
 		</span>
 	</label>
@@ -155,11 +166,6 @@ function htmlHandler(pk, occupation){
 	</div>`;
 
 	$('#professionRow').append(professionList);
-
-	// var option = 
-	// `<option value="${pk}">${occupation}</option>` 
-	
-	// $('#options').append(option)
 
 	
 }
@@ -192,20 +198,9 @@ function membercardlooks(element){
   $('#members').append(membersBox);
 }
 
-function options (occupation){
-	
-	var option = `<li 
-					class = "occupation" 
-					id="${occupation}">
-					<span width: 492.75px;position: absolute;top: 0px;left: 0px;display: none;opacity: 1">
-					${occupation}
-					</span>
-					
-					</li>`
-	// console.log (option);
 
-	$('ul.select-dropdown').append(option)		
-}
+
+
 	
 //============================================
 });// document on ready function closing tag 

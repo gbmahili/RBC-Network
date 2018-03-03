@@ -52,9 +52,8 @@ module.exports = function (sequelize, DataTypes) {
     telephone: DataTypes.STRING,
     //Photo, string type, validates to make sure a url link is added
     photo: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING 
     },
-
     //House number, cannot be null, integer type, validates for a min of 1 character and only numbers allowed
     house_number: {
       type: DataTypes.STRING,
@@ -76,9 +75,9 @@ module.exports = function (sequelize, DataTypes) {
     state: {
       type: DataTypes.STRING,
       allowNull: false,
-      // validate: {
-      //   isAlpha: true,
-      // }
+      validate: {
+        isAlpha: true,
+      }
     },
     //Country is a string type, cannot be null and validates for length
     country: {

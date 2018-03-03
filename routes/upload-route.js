@@ -10,7 +10,6 @@ module.exports = function(app) {
     var userName = req.body.first_name + "_" + req.body.last_name + "_" + req.body.telephone;
     var id = req.body.id;
 
-
     app.post('/uploadProfilePhoto', function (req, res) {
       if (!req.files)
         return res.status(400).send('No files were uploaded.');
@@ -42,9 +41,4 @@ module.exports = function(app) {
       });
     });
   })
-
-
-
-  
-
 }
