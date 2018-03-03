@@ -24,17 +24,19 @@ $('#searchIcon').click(function(event){
 		data: occupation,
 		success : function(dbProfession){
 			var users = (dbProfession[0].Users);
-
+			var profession = dbProfession[0];
+// console.log(dbProfession[0].category)
+// console.log(dbProfession[0].Users[0].first_name)
 			$('#cd').text('');			
 			$('#userprofile').hide();
 			$("#Profilepage").click(function(){
 				$('#userprofile').show();
 				$('#cd').text("");
 			});
-			$('#header').text('Our Members');
+			$('#header').text('Search Results');
 			$("#Profilepage").text("Back to your profile")
-			users.forEach(element =>{
-				
+			users.forEach(function (element, index){
+				// console.log(profession)
 				var membersBox = `
 					
 					<div class="col s3">
@@ -42,12 +44,12 @@ $('#searchIcon').click(function(event){
 					<div class="card-image">
 					<img id="image" src="/profileImages/${element.photo}">
 					</div>
-					<div class="card-content">
+					<div class="card-content" style= "background-color:black; color:white; text-align:center; margin-bottom:5px;" >
 						<span class="card-title">
-						<div id="firstName">${element.first_name}</div>
-						<div id="lastName">${element.last_name}</div>		
-						<div id="City">${element.city}</div>
-						<div id="State">${element.state}</div>
+						<div id="profession" style= "background-color:black; color:white; text-align:center; margin-bottom:5px;" > ${profession.category}</div>
+						<div id="firstName" style= "background-color:teal; color:white; text-align:center; margin-bottom:5px;">${element.first_name}, ${element.last_name}</div>	
+						<div id="City" style= "background-color:black; color:white; text-align:center;">${element.city}</div>
+						<div id="State" style= "background-color:black; color:white; text-align:center;">${element.state}</div>
 					</div>
 					<div class="card-action">
 						<a href="mailto:${element.email}?Subject=Rutgers%20BootCamp%20Network%2018%20Connection%20Request" target="_top">Send Mail</a>
@@ -65,6 +67,7 @@ $('#searchIcon').click(function(event){
 		}
 	});
 })
+
 
 //GET REQUEST For all the data from profession table
 //============================================
