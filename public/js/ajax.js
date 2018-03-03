@@ -25,6 +25,11 @@ $('#searchIcon').click(function(event){
 		success : function(dbProfession){
 			var users = (dbProfession[0].Users);
 			var profession = dbProfession[0];
+			var noProfessionInDb = (dbProfession[0].Users[0]);
+			if(noProfessionInDb == undefined){
+				$('#nodata').removeClass('hide');
+				console.log('oops not in our database');
+			}
 // console.log(dbProfession[0].category)
 // console.log(dbProfession[0].Users[0].first_name)
 			$('#cd').text('');			
@@ -32,8 +37,9 @@ $('#searchIcon').click(function(event){
 			$("#Profilepage").click(function(){
 				$('#userprofile').show();
 				$('#cd').text("");
+				$('#nodata').addClass('hide');
 			});
-			$('#header').text('Search Results');
+			$('#header').text('Our Members');
 			$("#Profilepage").text("Back to your profile")
 			users.forEach(function (element, index){
 				// console.log(profession)
