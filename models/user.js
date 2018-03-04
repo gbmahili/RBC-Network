@@ -51,50 +51,35 @@ module.exports = function (sequelize, DataTypes) {
     //Telephone is an integer type, validates for length and number ONLY
     telephone: DataTypes.STRING,
     //Photo, string type, validates to make sure a url link is added
-    photo: {
-      type: DataTypes.STRING 
-    },
+    photo:  DataTypes.STRING,
     //House number, cannot be null, integer type, validates for a min of 1 character and only numbers allowed
-    house_number: {
-      type: DataTypes.STRING,
-    },
+    house_number: DataTypes.STRING,
     //Street name, cannot be null, string type and validates for length
-    street_name: {
-      type: DataTypes.STRING,
-    },
+    street_name: DataTypes.STRING,
     //City, string type, cannot be null, validates for length
     city: {
       type: DataTypes.STRING,
       allowNull: false,
-      // validate: {
-      //   len: [1],
-      //   isAlpha: true,
-      // }
     },
     //State is a string type, and cannot be null
     state: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isAlpha: true,
-      }
+      allowNull: false
     },
     //Country is a string type, cannot be null and validates for length
-    country: {
-      type: DataTypes.STRING,
-    },
+    country: DataTypes.STRING,
     //Zipcode is an integer type, validates for length and it must be only numbers
     zipcode: {
       type: DataTypes.INTEGER,
       validate: {
         isNumeric: true,
       }
-    },
+    }
   });
 
   // Association between user and profession tables.
     User.associate = function (models) {
-      User.belongsToMany(models.Profession, {           
+      User.belongsToMany(models.Profession, {
         through: 'user_professions'
       });
     };
