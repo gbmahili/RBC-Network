@@ -19,11 +19,12 @@ module.exports = function(app) {
       // GEt current date and add to the file name
       var d = new Date();
       // Rename the image to add the date to avoid images being uploaded with the same name
-      let fileName = userName;
+      let fileName = userName + "_" + profileImage.name;
       
 
       // Use the mv() method to place the file somewhere on your server
-      profileImage.mv(`${__dirname}/../../RBC-NETWORK/public/profileImages/${fileName}`, function (err) {
+      console.log(__dirname);
+      profileImage.mv(`${__dirname}/../public/profileImages/${fileName}`, function (err) {
         if (err)
           return res.status(500).send(err);
         console.log(id);
