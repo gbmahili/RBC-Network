@@ -141,7 +141,6 @@
                 <option value="">Female</option>
                 <option value="">Male</option>
               </select>
-              <label></label>
             </div>
 
             <!-- BIRTH DATE -->
@@ -202,7 +201,7 @@
               <!-- Veena testing  -->
               <!-- drop the profession data -->
               <div class="allitems">
-                <div class="row" id="professionRow">
+                <div class="row card" id="professionRow" style="text-align: left; padding: 10px;">
                   <!-- dropping checkboxes on the fly -->
                  
                 </div>
@@ -226,6 +225,8 @@
   <script type="text/javascript " src="js/materialize.min.js "></script>
   <script>
     $(document).ready(function () {
+      // Get rid of the extra caret added by materialize
+      $(".caret").text("Jack");
       $('.dropdown-button').dropdown({
         constrainWidth: false,
         hover: true,
