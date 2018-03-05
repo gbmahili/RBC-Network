@@ -6,3 +6,5 @@ Database was created and manipulated using Sequelize framework. There are two ta
 ### PURPOSE
 The Rutgers Bootcamp class of April 2018 will continue to use keep in touch using this website.
 Users will sign up and login to search for other users.
+
+This is not locked to this class, so anyone is encouraged to sign up and keep in touch with developers.
