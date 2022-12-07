@@ -24,7 +24,7 @@
   "homepage": "https://github.com/gbmahili/RBC-Network#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0",
+    "express": "^4.17.3",
     "express-fileupload": "^0.4.0",
     "mysql2": "^1.5.2",
     "path": "^0.12.7",
